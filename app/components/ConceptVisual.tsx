@@ -1,3 +1,4 @@
+// app/components/ConceptVisual.tsx
 "use client";
 
 type ConceptVisualProps = {

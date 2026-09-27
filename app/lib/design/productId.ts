@@ -1,3 +1,4 @@
+// app/lib/design/productId.ts
 export function createMavenConceptId(
   projectName: string
 ): string {

@@ -1,3 +1,4 @@
+//app/lib/ai/image.ts
 import type {
   DesignConcept,
   DesignIntent,

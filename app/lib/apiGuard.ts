@@ -1,3 +1,4 @@
+//app/lib/apiGuard.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getMavenDb } from "@/app/lib/mongodb";
 

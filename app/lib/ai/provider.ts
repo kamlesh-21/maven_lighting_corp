@@ -155,6 +155,7 @@
 //   };
 // }
 
+// app/lib/ai/provider.ts
 import { InferenceClient } from "@huggingface/inference";
 import type { DesignInterpretation } from "@/app/lib/design/types";
 

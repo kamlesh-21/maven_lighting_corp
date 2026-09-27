@@ -1,3 +1,4 @@
+// app/lib/email.ts
 import nodemailer from "nodemailer";
 
 const host =

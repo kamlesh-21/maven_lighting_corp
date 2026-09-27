@@ -1,3 +1,4 @@
+//app/lib/ai/generate.ts
 import type {
   DesignIntent,
   DesignInterpretation,

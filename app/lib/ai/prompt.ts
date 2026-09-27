@@ -1,3 +1,4 @@
+//app/lib/ai/prompt.ts
 import type { DesignIntent } from "@/app/lib/design/types";
 
 export function buildDesignInterpreterPrompt(

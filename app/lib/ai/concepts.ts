@@ -1,3 +1,4 @@
+//app/lib/ai/concepts.ts
 import type {
   DesignConcept,
   DesignIntent,

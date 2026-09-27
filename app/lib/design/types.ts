@@ -1,3 +1,4 @@
+// app/lib/design/types.ts
 export type DesignIntent = {
   project: {
     name: string;

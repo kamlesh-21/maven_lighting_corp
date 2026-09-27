@@ -1,3 +1,4 @@
+// app/components/OptionGrid.tsx
 "use client";
 
 type Option = {
