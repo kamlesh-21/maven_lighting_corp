@@ -2,6 +2,7 @@ import type {
   DesignIntent,
   DesignInterpretation,
 } from "@/app/lib/design/types";
+
 import { buildDesignInterpreterPrompt } from "./prompt";
 import { runDesignInterpreter } from "./provider";
 
@@ -13,11 +14,16 @@ export async function interpretDesignIntent(
   designIntent: DesignIntent,
   referenceImage?: ReferenceImageInput
 ): Promise<DesignInterpretation> {
-  const input: Parameters<typeof runDesignInterpreter>[0] = [
+  const input: Array<{
+    type: "input_text" | "input_image";
+    text?: string;
+    image_url?: string;
+    detail?: "low" | "high" | "auto";
+  }> = [
     {
       type: "input_text",
       text: `
-Interpret this Maven lighting design intent.
+Interpret this design requirement for Maven Decoratives.
 
 Project:
 ${designIntent.project.name || "Not specified"}
@@ -60,10 +66,8 @@ ${designIntent.reference.fileName || "None"}
     });
   }
 
-  const result = await runDesignInterpreter(
+  return runDesignInterpreter(
     input,
     buildDesignInterpreterPrompt(designIntent)
   );
-
-  return result as DesignInterpretation;
 }

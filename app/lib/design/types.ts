@@ -6,11 +6,8 @@ export type DesignIntent = {
   };
 
   application: string[];
-
   atmosphere: string[];
-
   materials: string[];
-
   fixture: string[];
 
   reference: {
@@ -32,4 +29,23 @@ export type DesignInterpretation = {
   referenceInterpretation: string;
   architecturalIntent: string;
   generationDirection: string;
+};
+
+export type DesignConcept = {
+  id: string;
+  number: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  form: string;
+  material: string;
+  lighting: string;
+  architecturalRole: string;
+  generationPrompt: string;
+  visualType: "sculptural" | "layered" | "crafted";
+  imageUrl?: string;
+};
+
+export type ConceptGenerationResult = {
+  concepts: DesignConcept[];
 };

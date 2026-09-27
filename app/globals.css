@@ -275,7 +275,7 @@ button {
 }
 
 .reference-inner p {
-  margin: 0;
+  margin: 20;
   color: var(--muted);
   font-size: 14px;
   line-height: 1.7;
@@ -284,7 +284,7 @@ button {
 .reference-button {
   margin-top: 45px;
   padding: 12px 20px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line);  
   background: white;
   font-size: 13px;
 }
@@ -303,7 +303,7 @@ button {
 .reference-image {
   display: block;
   max-width: 100%;
-  max-height: 340px;
+  max-height: 400px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -968,5 +968,1264 @@ button {
 
   .concept-details {
     padding: 18px;
+  }
+}
+
+/* --------------------------------
+   MAVEN DESIGN PROCESS
+-------------------------------- */
+
+.maven-process {
+  margin-top: 44px;
+  padding: 44px 0 38px;
+  border-top: 1px solid var(--maven-line);
+  border-bottom: 1px solid var(--maven-line);
+}
+
+.maven-process-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--maven-stone);
+}
+
+.maven-process-stage {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+}
+
+.maven-process-stage span {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  animation: mavenProcessFade 700ms ease;
+}
+
+.maven-process-trail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  max-width: 760px;
+}
+
+.maven-process-trail span {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--maven-line);
+  transition: color 300ms ease;
+}
+
+.maven-process-trail span.active {
+  color: var(--maven-charcoal);
+}
+
+.maven-process-note {
+  margin: 28px 0 0;
+  font-size: 13px;
+  color: var(--maven-stone);
+}
+
+@keyframes mavenProcessFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------------
+   MAVEN UNDERSTANDING
+-------------------------------- */
+
+.maven-understanding {
+  margin-top: 46px;
+  padding: 34px 0;
+  border-top: 1px solid var(--maven-line);
+  border-bottom: 1px solid var(--maven-line);
+}
+
+.maven-understanding-label {
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--maven-stone);
+}
+
+.maven-understanding p {
+  max-width: 780px;
+  margin: 18px 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.maven-direction-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin-top: 1px;
+}
+
+.maven-direction-summary > div {
+  padding: 26px 28px 28px 0;
+  border-bottom: 1px solid var(--maven-line);
+}
+
+.maven-direction-summary > div:nth-child(odd) {
+  padding-right: 40px;
+}
+
+.maven-direction-summary > div:nth-child(even) {
+  padding-left: 28px;
+  border-left: 1px solid var(--maven-line);
+}
+
+.maven-direction-summary span,
+.maven-process-reference span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--maven-stone);
+}
+
+.maven-direction-summary p,
+.maven-process-reference p {
+  margin: 9px 0 0;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.maven-process-reference {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--maven-line);
+}
+
+.brief-action {
+  margin-top: 34px;
+}
+
+.brief-action p {
+  max-width: 650px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--maven-stone);
+}
+
+/* --------------------------------
+   STAGE 4 CONCEPTS
+-------------------------------- */
+
+.concept-section {
+  position: relative;
+}
+
+.concept-process {
+  margin-bottom: 44px;
+}
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 46px;
+}
+
+.concept-card {
+  border: 1px solid var(--maven-line);
+  background: var(--maven-white);
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.concept-card:hover {
+  transform: translateY(-2px);
+}
+
+.concept-card.selected {
+  border-color: var(--maven-charcoal);
+}
+
+.concept-select {
+  width: 100%;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.concept-number {
+  padding: 18px 20px 0;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--maven-stone);
+}
+
+.concept-visual {
+  position: relative;
+  height: 330px;
+  margin: 16px 16px 0;
+  overflow: hidden;
+  background: var(--maven-soft);
+}
+
+.concept-card-content {
+  padding: 24px 22px 28px;
+}
+
+.concept-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--maven-stone);
+}
+
+.concept-card-content h3 {
+  margin: 9px 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.concept-subtitle {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--maven-stone);
+}
+
+.concept-description {
+  margin: 18px 0 0;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.concept-details {
+  border-top: 1px solid var(--maven-line);
+  padding: 20px 22px 24px;
+}
+
+.concept-details > div + div {
+  margin-top: 18px;
+}
+
+.concept-details span {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--maven-stone);
+}
+
+.concept-details p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.concept-selection {
+  margin-top: 42px;
+  padding-top: 28px;
+  border-top: 1px solid var(--maven-line);
+}
+
+.concept-selection > span {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--maven-stone);
+}
+
+.concept-selection p {
+  margin: 9px 0 0;
+  font-size: 16px;
+}
+
+/* --------------------------------
+   CONCEPT VISUALS
+-------------------------------- */
+
+.concept-light {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 247, 220, 0.55);
+  filter: blur(24px);
+}
+
+/* Sculptural */
+
+.concept-visual-sculptural {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sculptural-outer,
+.sculptural-middle,
+.sculptural-inner {
+  position: absolute;
+  border: 1px solid rgba(23, 23, 23, 0.65);
+  border-radius: 50%;
+  transform: rotate(-18deg);
+}
+
+.sculptural-outer {
+  width: 210px;
+  height: 250px;
+}
+
+.sculptural-middle {
+  width: 155px;
+  height: 210px;
+}
+
+.sculptural-inner {
+  width: 90px;
+  height: 160px;
+}
+
+.concept-visual-sculptural .concept-light {
+  bottom: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Layered */
+
+.concept-visual-layered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layer {
+  position: absolute;
+  border: 1px solid rgba(23, 23, 23, 0.55);
+  border-radius: 50%;
+}
+
+.layer-one {
+  width: 250px;
+  height: 72px;
+  transform: translateY(-75px);
+}
+
+.layer-two {
+  width: 220px;
+  height: 68px;
+  transform: translateY(-25px);
+}
+
+.layer-three {
+  width: 190px;
+  height: 64px;
+  transform: translateY(25px);
+}
+
+.layer-four {
+  width: 160px;
+  height: 58px;
+  transform: translateY(75px);
+}
+
+.concept-visual-layered .concept-light {
+  bottom: 92px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Crafted */
+
+.concept-visual-crafted {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crafted-frame {
+  position: relative;
+  width: 170px;
+  height: 210px;
+  border: 1px solid rgba(23, 23, 23, 0.65);
+  border-radius: 50% 50% 42% 42%;
+}
+
+.crafted-core {
+  position: absolute;
+  width: 70px;
+  height: 120px;
+  left: 50%;
+  top: 45px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(23, 23, 23, 0.55);
+  border-radius: 50%;
+}
+
+.crafted-detail {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(23, 23, 23, 0.6);
+  border-radius: 50%;
+}
+
+.crafted-detail-one {
+  top: 42px;
+  left: 25px;
+}
+
+.crafted-detail-two {
+  top: 88px;
+  right: 20px;
+}
+
+.crafted-detail-three {
+  bottom: 35px;
+  left: 42px;
+}
+
+.concept-visual-crafted .concept-light {
+  bottom: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* --------------------------------
+   RESPONSIVE
+-------------------------------- */
+
+@media (max-width: 900px) {
+  .concept-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .concept-visual {
+    height: 360px;
+  }
+}
+
+@media (max-width: 800px) {
+  .maven-direction-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .maven-direction-summary > div:nth-child(even) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .maven-direction-summary > div:nth-child(odd) {
+    padding-right: 0;
+  }
+
+  .maven-process-stage span {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 520px) {
+  .maven-process {
+    margin-top: 32px;
+    padding: 32px 0;
+  }
+
+  .maven-process-stage {
+    min-height: 78px;
+  }
+
+  .maven-process-stage span {
+    font-size: 30px;
+  }
+
+  .maven-process-trail {
+    gap: 7px 12px;
+  }
+
+  .maven-understanding {
+    margin-top: 32px;
+    padding: 28px 0;
+  }
+
+  .maven-understanding p {
+    font-size: 25px;
+  }
+
+  .concept-grid {
+    margin-top: 32px;
+  }
+
+  .concept-visual {
+    height: 300px;
+    margin: 12px 12px 0;
+  }
+
+  .concept-card-content {
+    padding: 20px 18px 22px;
+  }
+
+  .concept-details {
+    padding: 18px;
+  }
+}
+
+/* --------------------------------
+   STAGE 5 / MAVEN CONCEPT
+-------------------------------- */
+
+.concept-workspace {
+  position: relative;
+}
+
+.concept-workspace-header {
+  margin-top: 46px;
+  padding: 24px 0;
+  border-top: 1px solid var(--maven-line);
+  border-bottom: 1px solid var(--maven-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.concept-workspace-label,
+.concept-workspace-header .concept-status {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--maven-stone);
+}
+
+.concept-id {
+  margin-top: 8px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+.concept-status {
+  text-align: right;
+}
+
+.concept-workspace-main {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  margin-top: 42px;
+}
+
+.concept-workspace-visual {
+  position: relative;
+  min-height: 620px;
+  background: var(--maven-soft);
+}
+
+.concept-workspace-number {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  z-index: 2;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--maven-stone);
+}
+
+.concept-workspace-image {
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.concept-workspace-image > span {
+  position: absolute;
+  bottom: 22px;
+  left: 24px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--maven-stone);
+}
+
+.concept-placeholder-mark {
+  width: 300px;
+  height: 360px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.concept-placeholder-shape {
+  position: absolute;
+  width: 230px;
+  height: 300px;
+  border: 1px solid rgba(23, 23, 23, 0.65);
+  border-radius: 50%;
+  transform: rotate(-16deg);
+}
+
+.concept-placeholder-shape::before {
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 235px;
+  left: 50%;
+  top: 32px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(23, 23, 23, 0.5);
+  border-radius: 50%;
+}
+
+.concept-placeholder-shape::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 170px;
+  left: 50%;
+  top: 62px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(23, 23, 23, 0.45);
+  border-radius: 50%;
+}
+
+.concept-placeholder-light {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  left: 50%;
+  bottom: 45px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(255, 247, 220, 0.55);
+  filter: blur(30px);
+}
+
+.concept-workspace-information {
+  padding-top: 8px;
+}
+
+.concept-workspace-direction span,
+.concept-spec-grid span,
+.concept-project-context span,
+.concept-downloads span,
+.concept-feasibility span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--maven-stone);
+}
+
+.concept-workspace-direction h3 {
+  margin: 12px 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 54px;
+  line-height: 0.95;
+  font-weight: 400;
+}
+
+.concept-workspace-direction p {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: var(--maven-stone);
+}
+
+.concept-workspace-description {
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px solid var(--maven-line);
+}
+
+.concept-workspace-description p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.concept-spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 30px;
+}
+
+.concept-spec-grid > div {
+  padding: 22px 24px 22px 0;
+  border-top: 1px solid var(--maven-line);
+}
+
+.concept-spec-grid > div:nth-child(even) {
+  padding-left: 24px;
+  border-left: 1px solid var(--maven-line);
+}
+
+.concept-spec-grid p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.concept-project-context {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 56px;
+  border-top: 1px solid var(--maven-line);
+  border-bottom: 1px solid var(--maven-line);
+}
+
+.concept-project-context > div {
+  padding: 22px 24px 24px 0;
+}
+
+.concept-project-context > div + div {
+  padding-left: 24px;
+  border-left: 1px solid var(--maven-line);
+}
+
+.concept-project-context p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.concept-downloads {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 42px 0;
+  border-bottom: 1px solid var(--maven-line);
+}
+
+.concept-downloads h4 {
+  margin: 10px 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.concept-downloads p {
+  max-width: 560px;
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--maven-stone);
+}
+
+.concept-download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.secondary-button {
+  min-height: 48px;
+  padding: 0 20px;
+  border: 1px solid var(--maven-line);
+  background: var(--maven-white);
+  color: var(--maven-charcoal);
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.secondary-button:hover {
+  border-color: var(--maven-charcoal);
+  background: var(--maven-soft);
+}
+
+.concept-feasibility {
+  margin-top: 42px;
+  padding: 34px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.concept-feasibility h3 {
+  margin: 10px 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.concept-feasibility p {
+  max-width: 680px;
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--maven-stone);
+}
+
+.concept-feasibility .primary-button {
+  flex-shrink: 0;
+}
+
+.concept-disclaimer {
+  margin: 24px 0 0;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--maven-stone);
+}
+
+
+/* --------------------------------
+   STAGE 5 RESPONSIVE
+-------------------------------- */
+
+@media (max-width: 900px) {
+  .concept-workspace-main {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .concept-workspace-visual,
+  .concept-workspace-image {
+    min-height: 500px;
+  }
+
+  .concept-project-context {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .concept-project-context > div:nth-child(3) {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .concept-feasibility {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 700px) {
+  .concept-workspace-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .concept-status {
+    text-align: left;
+  }
+
+  .concept-spec-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .concept-spec-grid > div:nth-child(even) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .concept-project-context {
+    grid-template-columns: 1fr;
+  }
+
+  .concept-project-context > div + div {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--maven-line);
+  }
+
+  .concept-downloads {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .concept-download-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .concept-workspace-header {
+    margin-top: 32px;
+  }
+
+  .concept-workspace-main {
+    margin-top: 30px;
+  }
+
+  .concept-workspace-visual,
+  .concept-workspace-image {
+    min-height: 400px;
+  }
+
+  .concept-placeholder-mark {
+    transform: scale(0.78);
+  }
+
+  .concept-workspace-direction h3 {
+    font-size: 44px;
+  }
+
+  .concept-project-context {
+    margin-top: 40px;
+  }
+
+  .concept-downloads {
+    padding: 32px 0;
+  }
+
+  .concept-download-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .secondary-button {
+    width: 100%;
+  }
+
+  .concept-feasibility {
+    margin-top: 30px;
+    padding: 30px 0;
+  }
+
+  .concept-feasibility .primary-button {
+    width: 100%;
+  }
+}
+
+.concept-visual-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--maven-soft, #efede8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.concept-generated-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================================
+   FEASIBILITY / PRICING
+   ========================================================= */
+
+.feasibility-section {
+  padding-top: 110px;
+  padding-bottom: 120px;
+}
+
+.feasibility-section .section-heading {
+  margin-bottom: 56px;
+}
+
+.feasibility-section .section-heading h2 {
+  max-width: 720px;
+}
+
+.feasibility-summary {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
+  gap: 0;
+  border: 1px solid rgba(20, 20, 20, 0.12);
+  background: #f7f5f0;
+  margin-bottom: 28px;
+}
+
+.feasibility-summary-image {
+  min-height: 420px;
+  background: #ebe8e1;
+  overflow: hidden;
+}
+
+.feasibility-summary-image .concept-visual {
+  width: 100%;
+  height: 100%;
+}
+
+.feasibility-summary-content {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feasibility-summary-content > span,
+.feasibility-form-heading > span,
+.feasibility-submit > div > span,
+.feasibility-success > span,
+.feasibility-success-project > span {
+  display: block;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(20, 20, 20, 0.52);
+}
+
+.feasibility-summary-content h3 {
+  margin: 12px 0 8px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1;
+  font-weight: 400;
+}
+
+.feasibility-summary-content > p {
+  margin: 0 0 42px;
+  color: rgba(20, 20, 20, 0.62);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.feasibility-project {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+.feasibility-project > div {
+  padding: 22px 18px 0 0;
+}
+
+.feasibility-project > div + div {
+  padding-left: 18px;
+  border-left: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+.feasibility-project span {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(20, 20, 20, 0.48);
+}
+
+.feasibility-project strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.feasibility-form {
+  border: 1px solid rgba(20, 20, 20, 0.12);
+  padding: 52px;
+  background: #fff;
+}
+
+.feasibility-form-heading {
+  margin-bottom: 28px;
+}
+
+.feasibility-form-heading:not(:first-child) {
+  margin-top: 58px;
+}
+
+.feasibility-form-heading > span {
+  color: rgba(20, 20, 20, 0.72);
+}
+
+.feasibility-form-heading p {
+  max-width: 650px;
+  margin: 10px 0 0;
+  color: rgba(20, 20, 20, 0.58);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.feasibility-form .context-grid {
+  gap: 22px;
+}
+
+.feasibility-form .context-field input,
+.feasibility-form .context-field textarea {
+  width: 100%;
+}
+
+.feasibility-notes {
+  display: block;
+  margin-top: 22px;
+}
+
+.feasibility-notes textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.feasibility-submit {
+  margin-top: 52px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(20, 20, 20, 0.12);
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.feasibility-submit > div {
+  max-width: 560px;
+}
+
+.feasibility-submit > div > p {
+  margin: 10px 0 0;
+  color: rgba(20, 20, 20, 0.58);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.feasibility-submit .primary-button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.feasibility-disclaimer {
+  margin: 28px 0 0;
+  max-width: 760px;
+  color: rgba(20, 20, 20, 0.42);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.feasibility-success {
+  border: 1px solid rgba(20, 20, 20, 0.12);
+  padding: 64px;
+  background: #f7f5f0;
+}
+
+.feasibility-success h3 {
+  margin: 18px 0 16px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.05;
+  font-weight: 400;
+}
+
+.feasibility-success > p {
+  max-width: 650px;
+  margin: 0;
+  color: rgba(20, 20, 20, 0.62);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.feasibility-success-project {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 42px;
+  margin-right: 60px;
+}
+
+.feasibility-success-project strong {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.feasibility-preview-trigger {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+
+  padding: 12px 18px;
+  border: 1px solid rgba(20, 20, 20, 0.2);
+  background: #fff;
+  color: #111;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* =========================================================
+   FEASIBILITY RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .feasibility-section {
+    padding-top: 72px;
+    padding-bottom: 80px;
+  }
+
+  .feasibility-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .feasibility-summary-image {
+    min-height: 320px;
+  }
+
+  .feasibility-summary-content {
+    padding: 32px 26px;
+  }
+
+  .feasibility-project {
+    grid-template-columns: 1fr;
+  }
+
+  .feasibility-project > div {
+    padding: 18px 0;
+    border-top: 1px solid rgba(20, 20, 20, 0.1);
+  }
+
+  .feasibility-project > div:first-child {
+    border-top: 0;
+  }
+
+  .feasibility-project > div + div {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .feasibility-form {
+    padding: 32px 24px;
+  }
+
+  .feasibility-submit {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .feasibility-submit .primary-button {
+    width: 100%;
+  }
+
+  .feasibility-success {
+    padding: 42px 26px;
+  }
+
+  .feasibility-success-project {
+    display: flex;
+    margin-right: 0;
+    margin-top: 28px;
+  }
+
+  .feasibility-preview-trigger {
+    right: 12px;
+    bottom: 12px;
   }
 }

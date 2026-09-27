@@ -1,24 +1,33 @@
 import { NextResponse } from "next/server";
 
-import type { DesignIntent } from "@/app/lib/design/types";
-import { interpretDesignIntent } from "@/app/lib/ai/generate";
+import type {
+  DesignIntent,
+  DesignInterpretation,
+} from "@/app/lib/design/types";
+
+import { createDummyConcepts } from "@/app/lib/ai/concepts";
+import { generateMavenConceptImage } from "@/app/lib/ai/image";
 
 export const runtime = "nodejs";
 
-type InterpretRequest = {
+type ConceptRequest = {
   designIntent: DesignIntent;
+  interpretation: DesignInterpretation;
   referenceImageData?: string;
 };
 
-export async function POST(request: Request) {
+export async function POST(
+  request: Request
+) {
   try {
     const body =
-      (await request.json()) as InterpretRequest;
+      (await request.json()) as ConceptRequest;
 
     if (!body?.designIntent) {
       return NextResponse.json(
         {
-          error: "Design intent is required.",
+          error:
+            "Design intent is required.",
         },
         {
           status: 400,
@@ -26,24 +35,52 @@ export async function POST(request: Request) {
       );
     }
 
-    const interpretation =
-      await interpretDesignIntent(
-        body.designIntent,
-        body.referenceImageData
-          ? {
-              dataUrl:
-                body.referenceImageData,
-            }
-          : undefined
+    if (!body?.interpretation) {
+      return NextResponse.json(
+        {
+          error:
+            "Design interpretation is required.",
+        },
+        {
+          status: 400,
+        }
       );
+    }
+
+    const concepts =
+      createDummyConcepts(
+        body.designIntent,
+        body.interpretation
+      );
+
+    const conceptsWithImages = [];
+
+    for (const concept of concepts) {
+      console.log(
+        `Maven image generation: ${concept.number} / ${concept.title}`
+      );
+
+      const imageUrl =
+        await generateMavenConceptImage(
+          concept,
+          body.designIntent,
+          body.interpretation,
+          body.referenceImageData
+        );
+
+      conceptsWithImages.push({
+        ...concept,
+        imageUrl,
+      });
+    }
 
     return NextResponse.json({
       success: true,
-      interpretation,
+      concepts: conceptsWithImages,
     });
   } catch (error) {
     console.error(
-      "Maven Design Interpreter error:",
+      "Maven Concept Generation error:",
       error
     );
 
@@ -52,7 +89,7 @@ export async function POST(request: Request) {
         error:
           error instanceof Error
             ? error.message
-            : "Unable to interpret the design intent.",
+            : "Unable to generate Maven design concepts.",
       },
       {
         status: 500,
@@ -63,8 +100,13 @@ export async function POST(request: Request) {
 
 // import { NextRequest, NextResponse } from "next/server";
 
-// import type { DesignIntent } from "@/app/lib/design/types";
-// import { interpretDesignIntent } from "@/app/lib/ai/generate";
+// import type {
+//   DesignIntent,
+//   DesignInterpretation,
+// } from "@/app/lib/design/types";
+
+// import { createDummyConcepts } from "@/app/lib/ai/concepts";
+// import { generateMavenConceptImage } from "@/app/lib/ai/image";
 
 // import {
 //   enforceRateLimit,
@@ -77,20 +119,23 @@ export async function POST(request: Request) {
 
 // export const runtime = "nodejs";
 
-// type InterpretRequest = {
+// type ConceptRequest = {
 //   designIntent: DesignIntent;
+//   interpretation: DesignInterpretation;
 //   referenceImageData?: string;
 // };
 
 // const MAX_BODY_BYTES = 10 * 1024 * 1024;
 
-// export async function POST(request: NextRequest) {
+// export async function POST(
+//   request: NextRequest
+// ) {
 //   try {
 //     const rateLimit = await enforceRateLimit(
 //       request,
 //       {
-//         endpoint: "interpret",
-//         maxRequests: 10,
+//         endpoint: "concepts",
+//         maxRequests: 3,
 //         windowMs: 60 * 60 * 1000,
 //       }
 //     );
@@ -103,11 +148,17 @@ export async function POST(request: Request) {
 //       (await readJsonBody(
 //         request,
 //         MAX_BODY_BYTES
-//       )) as InterpretRequest;
+//       )) as ConceptRequest;
 
 //     if (!body?.designIntent) {
 //       return badRequest(
 //         "Design intent is required."
+//       );
+//     }
+
+//     if (!body?.interpretation) {
+//       return badRequest(
+//         "Design interpretation is required."
 //       );
 //     }
 
@@ -176,43 +227,63 @@ export async function POST(request: Request) {
 //         ? body.referenceImageData
 //         : undefined;
 
-//     if (referenceImageData) {
-//       if (
-//         !referenceImageData.startsWith(
-//           "data:image/"
-//         )
-//       ) {
-//         referenceImageData = undefined;
-//       }
-
-//       if (
-//         referenceImageData &&
-//         referenceImageData.length >
-//           9 * 1024 * 1024
-//       ) {
-//         return badRequest(
-//           "The reference image is too large."
-//         );
-//       }
+//     if (
+//       referenceImageData &&
+//       !referenceImageData.startsWith(
+//         "data:image/"
+//       )
+//     ) {
+//       referenceImageData = undefined;
 //     }
 
-//     const interpretation =
-//       await interpretDesignIntent(
-//         safeDesignIntent,
-//         referenceImageData
-//           ? {
-//               dataUrl: referenceImageData,
-//             }
-//           : undefined
+//     if (
+//       referenceImageData &&
+//       referenceImageData.length >
+//         9 * 1024 * 1024
+//     ) {
+//       return NextResponse.json(
+//         {
+//           error:
+//             "The reference image is too large.",
+//         },
+//         { status: 413 }
 //       );
+//     }
+
+//     const concepts =
+//       createDummyConcepts(
+//         safeDesignIntent,
+//         body.interpretation
+//       );
+
+//     const conceptsWithImages = [];
+
+//     for (const concept of concepts) {
+//       console.log(
+//         `Maven image generation: ${concept.number} / ${concept.title}`
+//       );
+
+//       const imageUrl =
+//         await generateMavenConceptImage(
+//           concept,
+//           safeDesignIntent,
+//           body.interpretation,
+//           referenceImageData
+//         );
+
+//       conceptsWithImages.push({
+//         ...concept,
+//         imageUrl,
+//       });
+//     }
 
 //     return NextResponse.json({
 //       success: true,
-//       interpretation,
+//       concepts: conceptsWithImages,
 //     });
 //   } catch (error) {
 //     console.error(
-//       "Maven Design Interpreter error:",
+//       "Maven Concept Generation error:",
 //       error
 //     );
 
@@ -235,6 +306,25 @@ export async function POST(request: Request) {
 //     ) {
 //       return badRequest(
 //         "Invalid request data."
+//       );
+//     }
+
+//     const message =
+//       error instanceof Error
+//         ? error.message
+//         : "";
+
+//     if (
+//       /credit|quota|depleted|limit/i.test(
+//         message
+//       )
+//     ) {
+//       return NextResponse.json(
+//         {
+//           error:
+//             "Maven's image generation service has temporarily reached its usage limit. Please try again later.",
+//         },
+//         { status: 503 }
 //       );
 //     }
 

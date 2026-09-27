@@ -1,9 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { DesignInterpretation } from "@/app/lib/design/types";
+import type {
+  DesignConcept,
+  DesignInterpretation,
+} from "@/app/lib/design/types";
+import ConceptVisual from "@/app/components/ConceptVisual";
 import OptionGrid from "@/app/components/OptionGrid";
 import type { DesignIntent } from "@/app/lib/design/types";
+import ConceptWorkspace from "@/app/components/ConceptWorkspace";
+import { createMavenConceptId } from "@/app/lib/design/productId";
 
 const APPLICATIONS = [
   { value: "lobby", label: "Hotel Lobby" },
@@ -58,6 +64,17 @@ const SCALE_OPTIONS = [
   { value: "architectural", label: "Architectural" },
 ];
 
+const MAVEN_PROCESS_STEPS = [
+  "SPACE",
+  "ATMOSPHERE",
+  "MATERIAL",
+  "REFERENCE",
+  "PROPORTION",
+  "FORM",
+  "LIGHT",
+  "ARCHITECTURAL CONTEXT",
+];
+
 function labelFor(
   values: string[],
   options: { value: string; label: string }[]
@@ -91,6 +108,47 @@ export default function Home() {
   const [isInterpreting, setIsInterpreting] = useState(false);
 
   const [interpretError, setInterpretError] = useState("");
+
+  const [concepts, setConcepts] = useState<DesignConcept[]>([]);
+  const [isGeneratingConcepts, setIsGeneratingConcepts] = useState(false);
+  const [conceptError, setConceptError] = useState("");
+  const [selectedConcept, setSelectedConcept] =
+    useState<string | null>(null);
+
+  const [showConceptWorkspace, setShowConceptWorkspace] =
+    useState(false);
+
+    const [showFeasibility, setShowFeasibility] =
+    useState(false);
+
+  const [feasibilitySubmitted, setFeasibilitySubmitted] =
+    useState(false);
+
+  const [feasibilitySubmitting, setFeasibilitySubmitting] =
+    useState(false);
+
+  const [feasibilityError, setFeasibilityError] =
+    useState("");
+
+  const [feasibilityQuantity, setFeasibilityQuantity] =
+    useState("");
+
+  const [feasibilityTimeline, setFeasibilityTimeline] =
+    useState("");
+
+  const [feasibilityContactName, setFeasibilityContactName] =
+    useState("");
+
+  const [feasibilityContactEmail, setFeasibilityContactEmail] =
+    useState("");
+
+  const [feasibilityContactPhone, setFeasibilityContactPhone] =
+    useState("");
+
+  const [feasibilityNotes, setFeasibilityNotes] =
+    useState("");
+
+  const [processStep, setProcessStep] = useState(0);
 
   const toggle = (
     value: string,
@@ -138,69 +196,294 @@ export default function Home() {
       ?.scrollIntoView({ behavior: "smooth" });
   };
 
-const createDesignBrief = async () => {
-  setIsInterpreting(true);
-  setInterpretError("");
-  setInterpretation(null);
-  setShowBrief(true);
+  const createDesignBrief = async () => {
+    setIsInterpreting(true);
+    setInterpretError("");
+    setInterpretation(null);
+    setShowBrief(true);
 
-  try {
-    let referenceImageData: string | undefined;
+    try {
+      let referenceImageData: string | undefined;
 
+      if (referenceUrl) {
+        const response = await fetch(referenceUrl);
+        const blob = await response.blob();
+
+        referenceImageData = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+
+          reader.onloadend = () => {
+            if (typeof reader.result === "string") {
+              resolve(reader.result);
+            } else {
+              reject(new Error("Unable to read reference image."));
+            }
+          };
+
+          reader.onerror = () =>
+            reject(new Error("Unable to read reference image."));
+
+          reader.readAsDataURL(blob);
+        });
+      }
+
+      const response = await fetch("/api/interpret", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          designIntent,
+          interpretation,
+          referenceImageData:
+            referenceImageData || undefined,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Unable to create design interpretation.");
+      }
+
+      setInterpretation(data.interpretation);
+
+      window.setTimeout(() => {
+        document
+          .getElementById("design-brief")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    } catch (error) {
+      setInterpretError(
+        error instanceof Error
+          ? error.message
+          : "Unable to create the design interpretation."
+      );
+    } finally {
+      setIsInterpreting(false);
+    }
+  };
+
+  const exploreConcepts = async () => {
+    if (!interpretation) {
+      return;
+    }
+
+    setIsGeneratingConcepts(true);
+    setConceptError("");
+    setConcepts([]);
+    setSelectedConcept(null);
+    setProcessStep(0);
+
+    const processInterval = window.setInterval(() => {
+      setProcessStep((current) => {
+        if (current >= MAVEN_PROCESS_STEPS.length - 1) {
+          return current;
+        }
+
+        return current + 1;
+      });
+    }, 700);
+
+    let referenceImageData = "";
     if (referenceUrl) {
       const response = await fetch(referenceUrl);
       const blob = await response.blob();
 
-      referenceImageData = await new Promise<string>((resolve, reject) => {
-        const reader = new FileReader();
+      referenceImageData =
+        await new Promise<string>(
+          (resolve, reject) => {
+            const reader = new FileReader();
 
-        reader.onloadend = () => {
-          if (typeof reader.result === "string") {
-            resolve(reader.result);
-          } else {
-            reject(new Error("Unable to read reference image."));
+            reader.onloadend = () =>
+              resolve(reader.result as string);
+
+            reader.onerror = reject;
+
+            reader.readAsDataURL(blob);
           }
-        };
-
-        reader.onerror = () =>
-          reject(new Error("Unable to read reference image."));
-
-        reader.readAsDataURL(blob);
-      });
+        );
     }
 
-    const response = await fetch("/api/interpret", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        designIntent,
-        referenceImageData,
-      }),
-    });
+    try {
+      const response = await fetch("/api/concepts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          designIntent,
+          interpretation,
+          referenceImageData:
+            referenceImageData || undefined,
+        }),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          data.error || "Unable to create design concepts."
+        );
+      }
+
+      setProcessStep(MAVEN_PROCESS_STEPS.length - 1);
+
+      await new Promise((resolve) => setTimeout(resolve, 700));
+
+      setConcepts(data.concepts);
+
+      window.setTimeout(() => {
+        document
+          .getElementById("concept-directions")
+          ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+      }, 100);
+    } catch (error) {
+      setConceptError(
+        error instanceof Error
+          ? error.message
+          : "Unable to create design concepts."
+      );
+    } finally {
+      window.clearInterval(processInterval);
+      setIsGeneratingConcepts(false);
+    }
+  };
+
+const submitFeasibilityRequest = async () => {
+  if (feasibilitySubmitting) {
+    return;
+  }
+
+  if (
+    !feasibilityContactName.trim() ||
+    !feasibilityContactEmail.trim() ||
+    !feasibilityContactPhone.trim()
+  ) {
+    setFeasibilityError(
+      "Please provide your name, email address and phone number."
+    );
+    return;
+  }
+
+  if (
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+      feasibilityContactEmail.trim()
+    )
+  ) {
+    setFeasibilityError(
+      "Please provide a valid email address."
+    );
+    return;
+  }
+
+  const concept = concepts.find(
+    (item) => item.id === selectedConcept
+  );
+
+  if (!concept) {
+    setFeasibilityError(
+      "The selected Maven concept could not be found."
+    );
+    return;
+  }
+
+  setFeasibilitySubmitting(true);
+  setFeasibilityError("");
+
+  try {
+    const response = await fetch(
+      "/api/feasibility",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contact: {
+            name: feasibilityContactName.trim(),
+            email: feasibilityContactEmail
+              .trim()
+              .toLowerCase(),
+            phone: feasibilityContactPhone.trim(),
+          },
+
+          project: {
+            name: designIntent.project.name,
+            location: designIntent.project.location,
+            space: designIntent.project.space,
+          },
+
+          requirement: {
+            quantity: feasibilityQuantity.trim(),
+            timeline: feasibilityTimeline.trim(),
+            notes: feasibilityNotes.trim(),
+          },
+
+          concept: {
+            id: concept.id,
+            number: concept.number,
+            title: concept.title,
+            subtitle: concept.subtitle,
+            description: concept.description,
+            form: concept.form,
+            material: concept.material,
+            lighting: concept.lighting,
+            architecturalRole:
+              concept.architecturalRole,
+          },
+
+          designIntent,
+        }),
+      }
+    );
+
+    const data = await response
+      .json()
+      .catch(() => ({}));
 
     if (!response.ok) {
-      throw new Error(data.error || "Unable to create design interpretation.");
+      if (response.status === 429) {
+        throw new Error(
+          "Too many requests. Please wait before trying again."
+        );
+      }
+
+      if (response.status === 413) {
+        throw new Error(
+          "The request is too large."
+        );
+      }
+
+      throw new Error(
+        data.error ||
+          "Unable to submit the feasibility request."
+      );
     }
 
-    setInterpretation(data.interpretation);
+    if (!data.success) {
+      throw new Error(
+        "Maven did not confirm the request."
+      );
+    }
 
-    window.setTimeout(() => {
-      document
-        .getElementById("design-brief")
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 100);
+    setFeasibilitySubmitted(true);
   } catch (error) {
-    setInterpretError(
+    console.error(
+      "Maven feasibility submission error:",
+      error
+    );
+
+    setFeasibilityError(
       error instanceof Error
         ? error.message
-        : "Unable to create the design interpretation."
+        : "We could not submit the request right now. Please try again."
     );
   } finally {
-    setIsInterpreting(false);
+    setFeasibilitySubmitting(false);
   }
 };
 
@@ -462,76 +745,76 @@ const createDesignBrief = async () => {
         </section>
 
         <section className="section">
-  <div className="section-heading">
-    <div className="section-number">05 / REFERENCE</div>
+          <div className="section-heading">
+            <div className="section-number">05 / REFERENCE</div>
 
-    <div>
-      <h2>Have something in mind?</h2>
-      <p>
-        A photograph, Pinterest reference, Google image, sketch or
-        existing fixture can become the starting point.
-      </p>
-    </div>
-  </div>
+            <div>
+              <h2>Have something in mind?</h2>
+              <p>
+                A photograph, Pinterest reference, Google image, sketch or
+                existing fixture can become the starting point.
+              </p>
+            </div>
+          </div>
 
-  <div className="reference-layout">
-    <div className="reference-area">
-      {referenceUrl ? (
-        <div className="reference-uploaded">
-          <img
-            src={referenceUrl}
-            alt="Uploaded lighting reference"
-            className="reference-image"
-          />
+          <div className="reference-layout">
+            <div className="reference-area">
+              {referenceUrl ? (
+                <div className="reference-uploaded">
+                  <img
+                    src={referenceUrl}
+                    alt="Uploaded lighting reference"
+                    className="reference-image"
+                  />
 
-          <label className="reference-button">
-            Change reference
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleReferenceUpload}
-              hidden
-            />
-          </label>
-        </div>
-      ) : (
-        <div className="reference-inner">
-          <h3>Bring a reference.</h3>
+                  <label className="reference-button">
+                    Change reference
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleReferenceUpload}
+                      hidden
+                    />
+                  </label>
+                </div>
+              ) : (
+                <div className="reference-inner">
+                  <h3>Bring a reference.</h3>
 
-          <p>
-            Something you have seen, saved or sketched is enough. It
-            does not need to be an exact fixture.
-          </p>
+                  <p>
+                    Something you have seen, saved or sketched is enough. It
+                    does not need to be an exact fixture.
+                  </p>
 
-          <label className="reference-button">
-            Upload reference
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleReferenceUpload}
-              hidden
-            />
-          </label>
-        </div>
-      )}
-    </div>
+                  <label className="reference-button">
+                    Upload reference
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleReferenceUpload}
+                      hidden
+                    />
+                  </label>
+                </div>
+              )}
+            </div>
 
-    <div className="reference-notes">
-      <label className="context-field">
-        <span>Anything you want us to notice?</span>
-        <textarea
-          value={referenceNotes}
-          onChange={(event) => setReferenceNotes(event.target.value)}
-          placeholder="For example: the shape, proportion, finish, texture, or overall character."
-          rows={6}
-        />
-        <small>
-          Your note will be included in the Maven design brief.
-        </small>
-      </label>
-    </div>
-  </div>
-</section>
+            <div className="reference-notes">
+              <label className="context-field">
+                <span>Anything you want us to notice?</span>
+                <textarea
+                  value={referenceNotes}
+                  onChange={(event) => setReferenceNotes(event.target.value)}
+                  placeholder="For example: the shape, proportion, finish, texture, or overall character."
+                  rows={6}
+                />
+                <small>
+                  Your note will be included in the Maven design brief.
+                </small>
+              </label>
+            </div>
+          </div>
+        </section>
 
         <section className="section">
           <div className="section-heading">
@@ -592,73 +875,48 @@ const createDesignBrief = async () => {
         </section>
 
         {showBrief && (
-          <section className="brief" id="design-brief">
-            <div className="brief-header">
-              <div className="brief-label">08 / DESIGN BRIEF</div>
+          <section className="section" id="design-brief">
+            <div className="section-heading">
+              <div className="section-number">08 / MAVEN INTERPRETATION</div>
 
-              <h2>This is what Maven understands.</h2>
+              <div>
+                <h2>Maven understands the direction.</h2>
 
-              <p>
-                The structured brief below will eventually become the input for
-                Maven&apos;s design interpretation and concept generation.
-              </p>
-            </div>
-
-            <div className="brief-grid">
-              <div className="brief-item">
-                <span>Project </span>
-                <strong>{projectName || "Not specified"}</strong>
-              </div>
-
-              <div className="brief-item">
-                <span>Location </span>
-                <strong>{location || "Not specified"}</strong>
-              </div>
-
-              <div className="brief-item">
-                <span>Space </span>
-                <strong>{space || "Not specified"}</strong>
-              </div>
-
-              <div className="brief-item">
-                <span>Application </span>
-                <strong>
-                  {labelFor(application, APPLICATIONS) || "Not specified"}
-                </strong>
-              </div>
-
-              <div className="brief-item">
-                <span>Atmosphere </span>
-                <strong>{labelFor(moods, MOODS) || "Not specified"}</strong>
-              </div>
-
-              <div className="brief-item">
-                <span>Material language </span>
-                <strong>
-                  {labelFor(materials, MATERIALS) || "Not specified"}
-                </strong>
-              </div>
-
-              <div className="brief-item">
-                <span>Fixture direction </span>
-                <strong>
-                  {labelFor(fixture, FIXTURES) || "Open to exploration"}
-                </strong>
-              </div>
-
-              <div className="brief-item">
-                <span>Scale </span>
-                <strong>
-                  {labelFor(scale ? [scale] : [], SCALE_OPTIONS) ||
-                    "Not specified"}
-                </strong>
+                <p>
+                  Your references, material cues, atmosphere and architectural context
+                  are considered together to develop an original lighting direction.
+                </p>
               </div>
             </div>
 
             {isInterpreting && (
-              <div className="brief-interpretation">
-                <span>Maven Design Interpreter</span>
-                <p>Understanding the architectural and material direction...</p>
+              <div className="maven-process">
+                <div className="maven-process-label">
+                  MAVEN / DESIGN PROCESS
+                </div>
+
+                <div className="maven-process-stage">
+                  <span>
+                    {MAVEN_PROCESS_STEPS[processStep]}
+                  </span>
+                </div>
+
+                <div className="maven-process-trail">
+                  {MAVEN_PROCESS_STEPS.map((step, index) => (
+                    <span
+                      key={step}
+                      className={
+                        index <= processStep ? "active" : ""
+                      }
+                    >
+                      {step}
+                    </span>
+                  ))}
+                </div>
+
+                <p className="maven-process-note">
+                  Developing the design language from the information provided.
+                </p>
               </div>
             )}
 
@@ -669,63 +927,570 @@ const createDesignBrief = async () => {
               </div>
             )}
 
-            {interpretation && (
+            {interpretation && !isInterpreting && (
               <>
-                <div className="brief-interpretation">
-                  <span>Design character</span>
+                <div className="maven-understanding">
+                  <div className="maven-understanding-label">
+                    THE MAVEN READING
+                  </div>
+
                   <p>{interpretation.designCharacter}</p>
                 </div>
 
-                <div className="brief-grid">
-                  <div className="brief-item">
-                    <span>Form direction </span>
-                    <strong>{interpretation.formDirection}</strong>
+                <div className="maven-direction-summary">
+                  <div>
+                    <span>Form</span>
+                    <p>{interpretation.formDirection}</p>
                   </div>
 
-                  <div className="brief-item">
-                    <span>Material direction </span>
-                    <strong>{interpretation.materialDirection}</strong>
+                  <div>
+                    <span>Material</span>
+                    <p>{interpretation.materialDirection}</p>
                   </div>
 
-                  <div className="brief-item">
-                    <span>Proportion & scale </span>
-                    <strong>{interpretation.proportionAndScale}</strong>
+                  <div>
+                    <span>Proportion</span>
+                    <p>{interpretation.proportionAndScale}</p>
                   </div>
 
-                  <div className="brief-item">
-                    <span>Lighting character </span>
-                    <strong>{interpretation.lightingCharacter}</strong>
-                  </div>
-
-                  <div className="brief-item">
-                    <span>Visual language </span>
-                    <strong>{interpretation.visualLanguage}</strong>
-                  </div>
-
-                  <div className="brief-item">
-                    <span>Architectural intent </span>
-                    <strong>{interpretation.architecturalIntent}</strong>
+                  <div>
+                    <span>Light</span>
+                    <p>{interpretation.lightingCharacter}</p>
                   </div>
                 </div>
 
-                <div className="brief-interpretation">
-                  <span>Reference interpretation</span>
-                  <p>{interpretation.referenceInterpretation}</p>
+                <div className="maven-process-reference">
+                  <span>REFERENCE + ARCHITECTURAL READING</span>
+                  <p>
+                    {interpretation.referenceInterpretation}
+                  </p>
                 </div>
 
-                <div className="brief-interpretation">
-                  <span>Direction for concept generation</span>
-                  <p>{interpretation.generationDirection}</p>
+                <div className="brief-action">
+                  <p>
+                    Maven has developed the underlying design direction.
+                    The next step is to explore how that direction could become
+                    a fixture.
+                  </p>
+
+                  <button
+                    className="primary-button"
+                    onClick={exploreConcepts}
+                    disabled={isGeneratingConcepts}
+                  >
+                    {isGeneratingConcepts
+                      ? "Developing concepts..."
+                      : "Explore Concepts"}
+                  </button>
                 </div>
               </>
             )}
-
-            <div className="brief-action">
-              <button className="primary-button" disabled>
-                Explore Concepts · Coming Next
-              </button>
-            </div>
           </section>
+        )}
+
+        <section
+          className="section concept-section"
+          id="concept-directions"
+        >
+          <div className="section-heading">
+            <div className="section-number">
+              09 / DESIGN DIRECTIONS
+            </div>
+
+            <div>
+              <h2>Three ways the idea could become a fixture.</h2>
+
+              <p>
+                Maven has interpreted the direction and developed three distinct
+                possibilities. They are starting points for further design,
+                not final products.
+              </p>
+            </div>
+          </div>
+
+          {isGeneratingConcepts && (
+            <div className="maven-process concept-process">
+              <div className="maven-process-label">
+                MAVEN / CONCEPT DEVELOPMENT
+              </div>
+
+              <div className="maven-process-stage">
+                <span>
+                  {MAVEN_PROCESS_STEPS[processStep]}
+                </span>
+              </div>
+
+              <div className="maven-process-trail">
+                {MAVEN_PROCESS_STEPS.map((step, index) => (
+                  <span
+                    key={step}
+                    className={
+                      index <= processStep ? "active" : ""
+                    }
+                  >
+                    {step}
+                  </span>
+                ))}
+              </div>
+
+              <p className="maven-process-note">
+                Developing three distinct design interpretations.
+              </p>
+            </div>
+          )}
+
+          {conceptError && (
+            <div className="brief-interpretation">
+              <span>Something went wrong</span>
+              <p>{conceptError}</p>
+            </div>
+          )}
+
+          {concepts.length > 0 && (
+            <>
+              <div className="concept-grid">
+                {concepts.map((concept) => {
+                  const selected =
+                    selectedConcept === concept.id;
+
+                  return (
+                    <article
+                      key={concept.id}
+                      className={`concept-card ${
+                        selected ? "selected" : ""
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        className="concept-select"
+                        onClick={() =>
+                          setSelectedConcept(concept.id)
+                        }
+                        aria-pressed={selected}
+                      >
+                        <div className="concept-number">
+                          {concept.number}
+                        </div>
+
+                        <ConceptVisual
+                          type={concept.visualType}
+                          imageUrl={concept.imageUrl}
+                          title={concept.title}
+                        />
+
+                        <div className="concept-card-content">
+                          <div className="concept-label">
+                            Maven direction
+                          </div>
+
+                          <h3>{concept.title}</h3>
+
+                          <p className="concept-subtitle">
+                            {concept.subtitle}
+                          </p>
+
+                          <p className="concept-description">
+                            {concept.description}
+                          </p>
+                        </div>
+                      </button>
+
+                      <div className="concept-details">
+                        <div>
+                          <span>Form</span>
+                          <p>{concept.form}</p>
+                        </div>
+
+                        <div>
+                          <span>Material</span>
+                          <p>{concept.material}</p>
+                        </div>
+
+                        <div>
+                          <span>Light</span>
+                          <p>{concept.lighting}</p>
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+
+              <div className="concept-selection">
+                <span>Next</span>
+
+                {selectedConcept ? (
+                  <>
+                    <p>
+                      Continue with the{" "}
+                      <strong>
+                        {
+                          concepts.find(
+                            (concept) =>
+                              concept.id === selectedConcept
+                          )?.title
+                        }
+                      </strong>{" "}
+                      direction.
+                    </p>
+
+                    <button
+                      className="primary-button"
+                      type="button"
+                      onClick={() => {
+                        setShowConceptWorkspace(true);
+
+                        window.setTimeout(() => {
+                          document
+                            .getElementById("maven-concept")
+                            ?.scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                            });
+                        }, 100);
+                      }}
+                    >
+                      Continue with this direction
+                    </button>
+                  </>
+                ) : (
+                  <p>
+                    Select the direction that feels closest to the
+                    project.
+                  </p>
+                )}
+              </div>
+            </>
+          )}
+        </section>
+
+        {showConceptWorkspace && selectedConcept && (
+          (() => {
+            const concept = concepts.find(
+              (item) => item.id === selectedConcept
+            );
+
+            if (!concept) {
+              return null;
+            }
+
+            return (
+              <ConceptWorkspace
+                concept={concept}
+                designIntent={designIntent}
+                onRequestFeasibility={() => {
+                  setShowFeasibility(true);
+                  setFeasibilitySubmitted(false);
+                  setFeasibilityError("");
+
+                  window.setTimeout(() => {
+                    document
+                      .getElementById("feasibility")
+                      ?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                  }, 100);
+                }}
+              />
+            );
+          })()
+        )}
+
+        {showFeasibility && selectedConcept && (
+          (() => {
+            const concept = concepts.find(
+              (item) => item.id === selectedConcept
+            );
+
+            if (!concept) {
+              return null;
+            }
+
+            return (
+              <section
+                className="section feasibility-section"
+                id="feasibility"
+              >
+                <div className="section-heading">
+                  <div className="section-number">
+                    06 / FEASIBILITY & PRICING
+                  </div>
+
+                  <div>
+                    <h2>
+                      Let’s take this concept further.
+                    </h2>
+
+                    <p>
+                      Share the project requirements and Maven
+                      will review the selected direction for
+                      feasibility and pricing.
+                    </p>
+                  </div>
+                </div>
+
+                {!feasibilitySubmitted ? (
+                  <>
+                    <div className="feasibility-summary">
+                      <div className="feasibility-summary-image">
+                        <ConceptVisual
+                          type={concept.visualType}
+                          imageUrl={concept.imageUrl}
+                          title={concept.title}
+                        />
+                      </div>
+
+                      <div className="feasibility-summary-content">
+                        <span>
+                          SELECTED MAVEN CONCEPT
+                        </span>
+
+                        <h3>{concept.title}</h3>
+
+                        <p>{concept.subtitle}</p>
+
+                        <div className="feasibility-project">
+                          <div>
+                            <span>Project</span>
+                            <strong>
+                              {designIntent.project.name ||
+                                "Not specified"}
+                            </strong>
+                          </div>
+
+                          <div>
+                            <span>Location</span>
+                            <strong>
+                              {designIntent.project.location ||
+                                "Not specified"}
+                            </strong>
+                          </div>
+
+                          <div>
+                            <span>Space</span>
+                            <strong>
+                              {designIntent.project.space ||
+                                "Not specified"}
+                            </strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="feasibility-form">
+                      <div className="feasibility-form-heading">
+                        <span>
+                          PROJECT REQUIREMENT
+                        </span>
+
+                        <p>
+                          You do not need to provide technical
+                          specifications at this stage. Maven
+                          will review those as part of the
+                          feasibility process.
+                        </p>
+                      </div>
+
+                      <div className="context-grid">
+                        <label className="context-field">
+                          <span>
+                            Approximate quantity
+                          </span>
+
+                          <input
+                            type="text"
+                            value={feasibilityQuantity}
+                            onChange={(event) =>
+                              setFeasibilityQuantity(
+                                event.target.value
+                              )
+                            }
+                            placeholder="e.g. 18 fixtures"
+                          />
+                        </label>
+
+                        <label className="context-field">
+                          <span>
+                            Required timeline
+                          </span>
+
+                          <input
+                            type="text"
+                            value={feasibilityTimeline}
+                            onChange={(event) =>
+                              setFeasibilityTimeline(
+                                event.target.value
+                              )
+                            }
+                            placeholder="e.g. Installation by March 2027"
+                          />
+                        </label>
+                      </div>
+
+                      <div className="feasibility-form-heading">
+                        <span>
+                          YOUR DETAILS
+                        </span>
+
+                        <p>
+                          So Maven knows who to respond to.
+                        </p>
+                      </div>
+
+                      <div className="context-grid">
+                        <label className="context-field">
+                          <span>Name</span>
+
+                          <input
+                            type="text"
+                            value={feasibilityContactName}
+                            onChange={(event) =>
+                              setFeasibilityContactName(
+                                event.target.value
+                              )
+                            }
+                            placeholder="Your name"
+                          />
+                        </label>
+
+                        <label className="context-field">
+                          <span>Email</span>
+
+                          <input
+                            type="email"
+                            value={feasibilityContactEmail}
+                            onChange={(event) =>
+                              setFeasibilityContactEmail(
+                                event.target.value
+                              )
+                            }
+                            placeholder="you@studio.com"
+                          />
+                        </label>
+
+                        <label className="context-field">
+                          <span>Phone</span>
+
+                          <input
+                            type="tel"
+                            value={feasibilityContactPhone}
+                            onChange={(event) =>
+                              setFeasibilityContactPhone(
+                                event.target.value
+                              )
+                            }
+                            placeholder="+91"
+                          />
+                        </label>
+                      </div>
+
+                      <label className="context-field feasibility-notes">
+                        <span>
+                          Anything Maven should know?
+                        </span>
+
+                        <textarea
+                          value={feasibilityNotes}
+                          onChange={(event) =>
+                            setFeasibilityNotes(
+                              event.target.value
+                            )
+                          }
+                          placeholder="For example: ceiling height, preferred finish, installation constraints, budget considerations, or anything else relevant to the requirement."
+                          rows={6}
+                        />
+                      </label>
+
+                      {feasibilityError && (
+                        <div className="brief-interpretation">
+                          <span>
+                            Unable to submit
+                          </span>
+
+                          <p>
+                            {feasibilityError}
+                          </p>
+                        </div>
+                      )}
+
+                      <div className="feasibility-submit">
+                        <div>
+                          <span>
+                            MAVEN / FEASIBILITY REVIEW
+                          </span>
+
+                          <p>
+                            Maven will review the selected
+                            concept, project context and
+                            requirement before responding
+                            with feasibility and pricing.
+                          </p>
+                        </div>
+
+                        <button
+                          className="primary-button"
+                          type="button"
+                          onClick={
+                            submitFeasibilityRequest
+                          }
+                          disabled={
+                            feasibilitySubmitting
+                          }
+                        >
+                          {feasibilitySubmitting
+                            ? "Submitting request..."
+                            : "Submit Feasibility Request"}
+                        </button>
+                      </div>
+
+                      <p className="feasibility-disclaimer">
+                        AI-generated concept. Final dimensions,
+                        materials, construction and technical
+                        details are subject to Maven feasibility
+                        review.
+                      </p>
+                    </div>
+                  </>
+                ) : (
+                  <div className="feasibility-success">
+                    <span>
+                      MAVEN / REQUEST RECEIVED
+                    </span>
+
+                    <h3>
+                      Feasibility request submitted.
+                    </h3>
+
+                    <p>
+                      Maven has received the selected concept
+                      and project requirement. We will review
+                      the design direction, materials,
+                      construction approach and commercial
+                      requirements before responding.
+                    </p>
+
+                    <div className="feasibility-success-project">
+                      <span>PROJECT</span>
+
+                      <strong>
+                        {designIntent.project.name ||
+                          "Maven Project"}
+                      </strong>
+                    </div>
+
+                    <div className="feasibility-success-project">
+                      <span>SELECTED DIRECTION</span>
+
+                      <strong>
+                        {concept.title}
+                      </strong>
+                    </div>
+                  </div>
+                )}
+              </section>
+            );
+          })()
         )}
 
         <footer className="footer">
