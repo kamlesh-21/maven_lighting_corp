@@ -49,6 +49,15 @@ const collaborators = [
   },
 ];
 
+const projectTypes = [
+  'Hotels',
+  'Resorts',
+  'Restaurants',
+  'Residences',
+  'Clubhouses',
+  'Commercial & Public Spaces',
+]
+
 export default function Home() {
   return (
     <main>
@@ -93,9 +102,7 @@ export default function Home() {
           </h1>
 
           <p className="hero-copy">
-            We develop bespoke decorative lighting from references, concepts
-            and BOQs, translating design intent into fixtures made for the
-            space, the specification and the project.
+            Maven Decoratives develops bespoke decorative lighting for hospitality, commercial and residential projects across India.
           </p>
 
           <div className="hero-actions">
@@ -433,6 +440,40 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section collaborators-section" id="collaborators">
+        <div className="container">
+          <div className="section-heading-row collaborators-heading">
+            <div>
+              <p className="eyebrow">WHO WE WORK WITH</p>
+
+              <h2>
+                Different roles.
+                <br />
+                One project.
+              </h2>
+            </div>
+
+            <p>
+              Maven works alongside the people responsible for design, technical
+              coordination, procurement and project delivery.
+            </p>
+          </div>
+
+          <div className="collaborators-list">
+            {collaborators.map((item, index) => (
+              <article key={item.role}>
+                <span>0{index + 1}</span>
+
+                <div>
+                  <h3>{item.role}</h3>
+                  <p>{item.chain}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="process-section" id="process">
         <div className="container">
           <div className="process-header">
@@ -452,22 +493,6 @@ export default function Home() {
                 <p>{description}</p>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section project-types">
-        <div className="container">
-          <p className="eyebrow">PROJECT CONTEXTS</p>
-
-          <div className="project-type-list">
-            <span>Hotels</span>
-            <span>Resorts</span>
-            <span>Restaurants</span>
-            <span>Residences</span>
-            <span>Clubhouses</span>
-            <span>Commercial</span>
-            <span>Public Spaces</span>
           </div>
         </div>
       </section>
@@ -544,9 +569,9 @@ export default function Home() {
 
             <a
               className="contact-link"
-              href="mailto:maven.decoratives@gmail.com"
+              href="mailto:kamlesh@mavendecoratives.com"
             >
-              maven.decoratives@gmail.com
+              kamlesh@mavendecoratives.com
             </a>
           </div>
         </div>
@@ -566,8 +591,8 @@ export default function Home() {
           <div>
             <span className="footer-label">CONTACT</span>
             <a href="tel:+919646562880">+91 96465 62880</a>
-            <a href="mailto:maven.decoratives@gmail.com">
-              maven.decoratives@gmail.com
+            <a href="mailto:kamlesh@mavendecoratives.com">
+              kamlesh@mavendecoratives.com
             </a>
           </div>
 
