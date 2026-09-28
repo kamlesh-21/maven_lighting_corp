@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RequirementForm from "./components/RequirementForm";
 
 const lightingCategories = [
   { title: "Chandeliers", image: "/images/cat-chandeliers.png" },
@@ -48,15 +49,6 @@ const collaborators = [
     chain: "Design + budget → alternatives → production → delivery",
   },
 ];
-
-const projectTypes = [
-  'Hotels',
-  'Resorts',
-  'Restaurants',
-  'Residences',
-  'Clubhouses',
-  'Commercial & Public Spaces',
-]
 
 export default function Home() {
   return (
@@ -319,7 +311,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="technical-section">
+      <section className="technical-section" id="technical">
         <div className="container">
           <div className="technical-header">
             <div>
@@ -540,6 +532,59 @@ export default function Home() {
 
       <section className="contact-section" id="contact">
         <div className="container">
+          <div className="contact-header">
+            <div>
+              <p className="eyebrow">HAVE A REQUIREMENT?</p>
+
+              <h2>
+                Start a Lighting
+                <br />
+                Conversation.
+              </h2>
+            </div>
+
+            <p className="contact-intro">
+              Tell us about the project, or share a reference, drawing or BOQ.
+            </p>
+          </div>
+
+          <div className="contact-grid">
+            <div className="requirement-form">
+              <RequirementForm />
+            </div>
+
+            <aside className="contact-direct">
+              <p className="contact-direct-label">DIRECT CONTACT</p>
+
+              <div className="contact-direct-item">
+                <span>EMAIL</span>
+                <a href="mailto:kamlesh@mavendecoratives.com">
+                  kamlesh@mavendecoratives.com
+                </a>
+              </div>
+
+              <div className="contact-direct-item">
+                <span>WHATSAPP</span>
+                <a href="https://wa.me/919646562880" target="_blank" rel="noreferrer">
+                  +91 96465 62880
+                </a>
+              </div>
+
+              <a
+                className="button button-dark contact-whatsapp"
+                href="https://wa.me/919646562880?text=Hello%20Maven%20Decoratives%2C%20I%20have%20a%20project%20requirement%20for%20bespoke%20decorative%20lighting.%20I%20would%20like%20to%20share%20the%20reference%2Fdesign%20and%20project%20details."
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp Maven
+              </a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* <section className="contact-section" id="contact">
+        <div className="container">
           <p className="eyebrow">HAVE A REQUIREMENT?</p>
 
           <h2>
@@ -575,40 +620,84 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <footer className="site-footer">
-        <div className="container footer-grid">
-          <div>
-            <div className="footer-brand">MAVEN DECORATIVES</div>
-            <p>
-              Bespoke decorative lighting
-              <br />
-              for projects.
-            </p>
+        <div className="container">
+
+          <div className="footer-main">
+            <div className="footer-brand-block">
+              <div className="footer-brand-large">
+                MAVEN
+                <br />
+                DECORATIVES
+              </div>
+
+              <p className="footer-description">
+                Bespoke decorative lighting for projects,
+                from drawings to production and delivery.
+              </p>
+            </div>
+
+            <div className="footer-column">
+              <span className="footer-label">EXPLORE</span>
+
+              <a href="#approach">Approach</a>
+              <a href="#technical">Technical</a>
+              <a href="#collaborators">Who We Work With</a>
+              <a href="#process">Process</a>
+              <a href="#contact">Contact</a>
+            </div>
+
+            <div className="footer-column">
+              <span className="footer-label">CONTACT</span>
+
+              <a href="mailto:kamlesh@mavendecoratives.com">
+                kamlesh@mavendecoratives.com
+              </a>
+
+              <a href="tel:+919646562880">
+                +91 96465 62880
+              </a>
+
+              <a
+                href="https://wa.me/919646562880"
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp
+              </a>
+            </div>
+
+            <div className="footer-column">
+              <span className="footer-label">LOCATION</span>
+
+              <p>
+                Bengaluru
+                <br />
+                India
+              </p>
+
+              <span className="footer-label footer-location-label">
+                PROJECTS
+              </span>
+
+              <p>
+                Hospitality
+                <br />
+                Commercial
+                <br />
+                Residential
+              </p>
+            </div>
           </div>
 
-          <div>
-            <span className="footer-label">CONTACT</span>
-            <a href="tel:+919646562880">+91 96465 62880</a>
-            <a href="mailto:kamlesh@mavendecoratives.com">
-              kamlesh@mavendecoratives.com
-            </a>
+          <div className="footer-bottom">
+            <span>© {new Date().getFullYear()} Maven Decoratives</span>
+            <span>India</span>
+            <span>Design-led contract manufacturing</span>
           </div>
 
-          <div>
-            <span className="footer-label">LOCATION</span>
-            <p>
-              Bengaluru
-              <br />
-              India
-            </p>
-          </div>
-        </div>
-
-        <div className="container footer-bottom">
-          <span>© {new Date().getFullYear()} Maven Decoratives</span>
-          <span>Design-led contract manufacturing</span>
         </div>
       </footer>
 
