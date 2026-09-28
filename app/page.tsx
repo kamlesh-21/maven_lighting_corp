@@ -1,159 +1,132 @@
-// app/page.tsx
-import Image from 'next/image'
+import Link from "next/link";
 
-const lighting = [
-  {
-    title: 'Chandeliers',
-    image: '/images/cat-chandeliers.png',
-    alt: 'Bespoke decorative chandelier',
-  },
-  {
-    title: 'Pendants',
-    image: '/images/cat-pendant.png',
-    alt: 'Custom pendant lighting',
-  },
-  {
-    title: 'Wall & Sconces',
-    image: '/images/cat-wall-sconce.png',
-    alt: 'Bespoke wall and sconce lighting',
-  },
-  {
-    title: 'Feature Installations',
-    image: '/images/cat-feature.png',
-    alt: 'Feature decorative lighting installation',
-  },
-  {
-    title: 'Hospitality Lighting',
-    image: '/images/cat-hospitality.png',
-    alt: 'Hospitality decorative lighting',
-  },
-  {
-    title: 'Custom Fixtures',
-    image: '/images/cat-custom.png',
-    alt: 'Custom decorative lighting fixture',
-  },
-]
+const lightingCategories = [
+  { title: "Chandeliers", image: "/images/cat-chandeliers.png" },
+  { title: "Pendants", image: "/images/cat-pendant.png" },
+  { title: "Wall Sconces", image: "/images/cat-wall-sconce.png" },
+  { title: "Custom Fixtures", image: "/images/cat-custom.png" },
+  { title: "Hospitality Lighting", image: "/images/cat-hospitality.png" },
+  { title: "Feature Lighting", image: "/images/cat-feature.png" },
+];
 
 const materials = [
-  {
-    title: 'Brass & Metal',
-    image: '/images/mat-brass.png',
-  },
-  {
-    title: 'Glass',
-    image: '/images/mat-glass.png',
-  },
-  {
-    title: 'Crystal',
-    image: '/images/mat-crystal.png',
-  },
-  {
-    title: 'Fabric & Textiles',
-    image: '/images/mat-fabric.png',
-  },
-  {
-    title: 'Mixed Materials',
-    image: '/images/mat-mixed.png',
-  },
-  {
-    title: 'Finishes',
-    image: '/images/mat-finishes.png',
-  },
-]
+  { title: "Brass & Metal", image: "/images/mat-brass.png" },
+  { title: "Crystal", image: "/images/mat-crystal.png" },
+  { title: "Fabric", image: "/images/mat-fabric.png" },
+  { title: "Glass", image: "/images/mat-glass.png" },
+  { title: "Mixed Materials", image: "/images/mat-mixed.png" },
+  { title: "Finishes", image: "/images/mat-finishes.png" },
+];
 
 const process = [
-  ['01', 'Reference', 'Image, drawing, BOQ, sketch or simply an idea.'],
-  ['02', 'Understand', 'Project context, dimensions, material, finish, quantity and timeline.'],
-  ['03', 'Develop', 'Design interpretation, technical development and manufacturing approach.'],
-  ['04', 'Approve', 'CAD, samples, swatches or mock-ups are developed for approval.'],
-  ['05', 'Deliver', 'Production, quality checks, coordination and delivery.'],
-]
+  ["01", "Reference", "A photograph, sketch, drawing, BOQ or simply an idea."],
+  ["02", "Interpret", "Understand the design intent, space, scale, material and use."],
+  ["03", "Develop", "Translate the idea into dimensions, construction, light and finish."],
+  ["04", "Approve", "Samples, mock-ups, drawings and technical coordination."],
+  ["05", "Deliver", "Production coordination, quality checks and project delivery."],
+];
 
-const projectTypes = [
-  'Hotels',
-  'Resorts',
-  'Restaurants',
-  'Residences',
-  'Clubhouses',
-  'Commercial & Public Spaces',
-]
+const collaborators = [
+  {
+    role: "Architects",
+    chain: "Design intent → scale → proportion → custom development",
+  },
+  {
+    role: "Interior Designers",
+    chain: "Reference → material → finish → mock-up",
+  },
+  {
+    role: "PMC / Project Teams",
+    chain: "Drawings → fixing → weight → coordination → timelines",
+  },
+  {
+    role: "Procurement",
+    chain: "BOQ → specification → commercial → lead time",
+  },
+  {
+    role: "Developers / Owners",
+    chain: "Design + budget → alternatives → production → delivery",
+  },
+];
 
 export default function Home() {
   return (
     <main>
       <header className="site-header">
         <div className="container header-inner">
-          <a href="#top" className="logo" aria-label="Maven Decoratives">
-            <span>MAVEN</span>
-            <small>DECORATIVES</small>
-          </a>
+          <Link href="#top" className="brand">
+            MAVEN
+            <span>DECORATIVES</span>
+          </Link>
 
-          <nav className="desktop-nav" aria-label="Primary navigation">
-            <a href="#approach">Approach</a>
-            <a href="#lighting">Lighting</a>
-            <a href="#materials">Materials</a>
-            <a href="#process">Process</a>
-            <a href="#contact">Contact</a>
+          <nav className="desktop-nav">
+            <Link href="#approach">Approach</Link>
+            <Link href="#lighting">Lighting</Link>
+            <Link href="#materials">Materials</Link>
+            <Link href="#process">Process</Link>
+            <Link href="#contact">Contact</Link>
           </nav>
 
-          <a className="header-cta" href="#contact">
-            Discuss a Project
+          <a
+            className="header-cta"
+            href="https://wa.me/919646562880?text=Hello%20Maven%20Decoratives%2C%20I%20have%20a%20project%20requirement%20for%20bespoke%20decorative%20lighting.%20I%20would%20like%20to%20share%20the%20reference%2Fdesign%20and%20project%20details."
+            target="_blank"
+            rel="noreferrer"
+          >
+            Discuss a project
           </a>
         </div>
       </header>
 
-      <section id="top" className="hero">
-        <Image
-          src="/images/hero-chandelier.png"
-          alt="Decorative chandelier in a hospitality interior"
-          fill
-          priority
-          sizes="100vw"
-          className="hero-image"
-        />
-
-        <div className="hero-overlay" />
+      <section className="hero" id="top">
+        <div className="hero-image">
+          <img src="/images/hero-chandelier.png" alt="Decorative chandelier" />
+        </div>
 
         <div className="container hero-content">
-          <p className="eyebrow light-text">Bespoke Decorative Lighting</p>
+          <p className="eyebrow">BESPOKE DECORATIVE LIGHTING</p>
 
           <h1>
-            Decorative lighting,
+            Lighting developed
             <br />
-            developed around
-            <br />
-            the project.
+            around the project.
           </h1>
 
           <p className="hero-copy">
-            From reference, concept or BOQ to design development,
-            materials, fabrication and delivery.
+            We develop bespoke decorative lighting from references, concepts
+            and BOQs, translating design intent into fixtures made for the
+            space, the specification and the project.
           </p>
 
           <div className="hero-actions">
-            <a href="#contact" className="button button-light">
-              Share a Requirement
+            <a
+              className="button button-dark"
+              href="https://wa.me/919646562880?text=Hello%20Maven%20Decoratives%2C%20I%20have%20a%20project%20requirement%20for%20bespoke%20decorative%20lighting.%20I%20would%20like%20to%20share%20the%20reference%2Fdesign%20and%20project%20details."
+              target="_blank"
+              rel="noreferrer"
+            >
+              Share a requirement
             </a>
 
-            <a href="#approach" className="text-link light-text">
+            <a className="text-link" href="#approach">
               Explore Maven <span>↓</span>
             </a>
           </div>
+        </div>
 
-          <div className="hero-meta">
-            <span>Hospitality</span>
-            <span>Custom Development</span>
-            <span>Project-Based</span>
-          </div>
+        <div className="container hero-meta">
+          <span>Hospitality</span>
+          <span>Residential</span>
+          <span>Commercial</span>
+          <span>India</span>
         </div>
       </section>
 
-      <section id="approach" className="section proposition">
+      <section className="section" id="approach">
         <div className="container">
-          <div className="section-intro">
-            <span className="section-label">MAVEN / APPROACH</span>
-
+          <div className="section-intro split">
             <div>
+              <p className="eyebrow">THE MAVEN APPROACH</p>
               <h2>
                 Not a catalogue.
                 <br />
@@ -161,12 +134,16 @@ export default function Home() {
                 <br />
                 for the project.
               </h2>
+            </div>
 
-              <p className="intro-copy">
-                A reference image is only the beginning. Maven works with
-                architects, interior designers, PMCs, developers and project
-                teams to develop decorative lighting around the actual
-                requirements of the space.
+            <div className="intro-copy">
+              <p>
+                A decorative fixture can begin with a reference image, a
+                designer's sketch, a BOQ description or a particular material.
+              </p>
+              <p>
+                Our role is to understand what needs to happen between that
+                starting point and the finished fixture.
               </p>
             </div>
           </div>
@@ -176,8 +153,8 @@ export default function Home() {
               <span>01</span>
               <h3>Reference as a starting point</h3>
               <p>
-                Bring an image, sketch, existing fixture, drawing or BOQ.
-                The starting point does not need to be production-ready.
+                Existing references are interpreted rather than simply
+                reproduced.
               </p>
             </article>
 
@@ -185,8 +162,8 @@ export default function Home() {
               <span>02</span>
               <h3>Designed around context</h3>
               <p>
-                Scale, proportion, material, finish, quantity, budget and
-                architectural context shape the development.
+                Scale, proportion, ceiling height, material and architectural
+                setting inform the fixture.
               </p>
             </article>
 
@@ -194,9 +171,8 @@ export default function Home() {
               <span>03</span>
               <h3>Developed to be made</h3>
               <p>
-                Design intent is considered alongside construction,
-                components, fixing, weight, electrical requirements and
-                production realities.
+                Design intent is considered alongside construction, components,
+                finishes, light and fixing.
               </p>
             </article>
 
@@ -204,123 +180,118 @@ export default function Home() {
               <span>04</span>
               <h3>Built for project delivery</h3>
               <p>
-                Sampling, approvals, production coordination, quality checks
-                and delivery remain part of the process.
+                Drawings, samples, approvals, quantities, timelines and site
+                requirements are part of the process.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section className="dark-statement">
+      <section className="statement-section">
         <div className="container">
-          <p className="section-label">DESIGN INTENT</p>
+          <p className="eyebrow">A DIFFERENT STARTING POINT</p>
           <h2>
             Start with the space.
             <br />
             Not the fixture.
           </h2>
-          <p>
-            The right decorative light is not simply a beautiful object. Its
-            scale, proportion, material, finish and light have to belong to
-            the architecture.
-          </p>
         </div>
       </section>
 
-      <section className="section reference-flow">
+      <section className="section reference-section">
         <div className="container">
           <div className="section-intro">
-            <span className="section-label">FROM REFERENCE TO FIXTURE</span>
-
-            <div>
-              <h2>
-                The reference
-                <br />
-                is where we begin.
-              </h2>
-
-              <p className="intro-copy">
-                We interpret what matters in the reference, then develop the
-                fixture around the requirements of the project.
-              </p>
-            </div>
+            <p className="eyebrow">FROM IDEA TO FIXTURE</p>
+            <h2>One reference. Many decisions behind it.</h2>
+            <p className="wide-copy">
+              The visible object is only the final result. Before it reaches
+              the ceiling, its scale, material, construction, light, finish
+              and installation have to work together.
+            </p>
           </div>
 
-          <div className="flow">
-            <div className="flow-item">
+          <div className="reference-flow">
+            <div>
               <span>01</span>
               <strong>Reference</strong>
-              <small>Image / sketch / BOQ</small>
+              <small>Image · sketch · BOQ</small>
             </div>
-
-            <i />
-
-            <div className="flow-item">
+            <div>
               <span>02</span>
               <strong>Interpretation</strong>
-              <small>Form / scale / intent</small>
+              <small>Intent · proportion</small>
             </div>
-
-            <i />
-
-            <div className="flow-item">
+            <div>
               <span>03</span>
               <strong>Material</strong>
-              <small>Finish / texture / components</small>
+              <small>Glass · metal · stone</small>
             </div>
-
-            <i />
-
-            <div className="flow-item">
+            <div>
               <span>04</span>
               <strong>Development</strong>
-              <small>CAD / sample / mock-up</small>
+              <small>Construction · light</small>
             </div>
-
-            <i />
-
-            <div className="flow-item">
+            <div>
               <span>05</span>
               <strong>Fixture</strong>
-              <small>Production / delivery</small>
+              <small>Approved · produced</small>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="lighting" className="section lighting-section">
+      <section className="section lighting-section" id="lighting">
         <div className="container">
-          <div className="section-top">
+          <div className="section-heading-row">
             <div>
-              <span className="section-label">LIGHTING</span>
-              <h2>Decorative lighting without a fixed range.</h2>
+              <p className="eyebrow">LIGHTING</p>
+              <h2>Made around the requirement.</h2>
             </div>
-
             <p>
-              Statement pieces, architectural fixtures and everything between.
-              The requirement can determine the form rather than the other way
-              around.
+              Decorative lighting across hospitality, residential and
+              commercial environments.
             </p>
           </div>
 
           <div className="lighting-grid">
-            {lighting.map((item, index) => (
+            {lightingCategories.map((item, index) => (
               <article
-                className={`lighting-card lighting-card-${index + 1}`}
+                className={`image-card image-card-${index + 1}`}
                 key={item.title}
               >
-                <div className="image-wrap">
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    sizes="(max-width: 700px) 100vw, 50vw"
-                    className="cover-image"
-                  />
+                <img src={item.image} alt={item.title} />
+                <div className="image-card-caption">
+                  <span>0{index + 1}</span>
+                  <h3>{item.title}</h3>
                 </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                <div className="card-caption">
+      <section className="section materials-section" id="materials">
+        <div className="container">
+          <div className="section-intro">
+            <p className="eyebrow">MATERIALS & FINISHES</p>
+            <h2>
+              Material is not
+              <br />
+              an afterthought.
+            </h2>
+            <p className="wide-copy">
+              The same design can change completely through material, surface,
+              transparency, texture and finish. We work across combinations
+              suited to the intended visual language and project requirement.
+            </p>
+          </div>
+
+          <div className="materials-grid">
+            {materials.map((item, index) => (
+              <article className="material-card" key={item.title}>
+                <img src={item.image} alt={item.title} />
+                <div>
                   <span>0{index + 1}</span>
                   <h3>{item.title}</h3>
                 </div>
@@ -328,86 +299,107 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="category-line">
-            Chandeliers · Pendants · Hanging Luminaries · Ceiling Fixtures ·
-            Ceiling-to-Floor Installations · Wall Lights · Sconces · Table
-            Lamps · Floor Lamps · Feature Lighting · Custom Fixtures
-          </p>
+          <div className="material-vocabulary">
+            <span>ALABASTER</span>
+            <span>MARBLE</span>
+            <span>CANE</span>
+            <span>GLASS</span>
+            <span>CRYSTAL</span>
+            <span>METAL</span>
+            <span>FABRIC</span>
+            <span>MIXED MATERIALS</span>
+          </div>
         </div>
       </section>
 
-      <section id="materials" className="section materials-section">
+      <section className="technical-section">
         <div className="container">
-          <div className="section-top">
+          <div className="technical-header">
             <div>
-              <span className="section-label">MATERIAL / FINISH</span>
-              <h2>Material is part of the design.</h2>
+              <p className="eyebrow">BEYOND THE FIXTURE</p>
+              <h2>
+                Beauty is visible.
+                <br />
+                The details make it work.
+              </h2>
             </div>
 
             <p>
-              Brass, metal, glass, crystal, fabric, cane, marble, alabaster,
-              wood, ceramic and mixed materials can all become part of the
-              fixture language.
+              Decorative lighting has to perform as part of a larger
+              environment. We consider the technical and practical details
+              that sit behind the design.
             </p>
           </div>
 
-          <div className="materials-grid">
-            {materials.map((item) => (
-              <article key={item.title}>
-                <div className="material-image">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 700px) 50vw, 33vw"
-                    className="cover-image"
-                  />
-                </div>
+          <div className="technical-grid">
+            <article>
+              <span>01</span>
+              <h3>Light</h3>
+              <p>CRI · CCT · lumen output · beam angle · glare</p>
+            </article>
 
-                <h3>{item.title}</h3>
-              </article>
-            ))}
+            <article>
+              <span>02</span>
+              <h3>Control</h3>
+              <p>Triac · 0–10V · DALI · project-specific requirements</p>
+            </article>
+
+            <article>
+              <span>03</span>
+              <h3>Scale</h3>
+              <p>Diameter · height · drop · proportion · viewing distance</p>
+            </article>
+
+            <article>
+              <span>04</span>
+              <h3>Construction</h3>
+              <p>Weight · structure · fixing · safety · ceiling condition</p>
+            </article>
+
+            <article>
+              <span>05</span>
+              <h3>Material</h3>
+              <p>Metal · glass · crystal · stone · fabric · mixed finishes</p>
+            </article>
+
+            <article>
+              <span>06</span>
+              <h3>Coordination</h3>
+              <p>RCP · drivers · access · wiring · maintenance</p>
+            </article>
           </div>
 
-          <div className="material-note">
-            <span>Material vocabulary</span>
-            <p>
-              Cane &amp; rattan · Natural textiles · Tasar · Marble ·
-              Alabaster · Wood · Terracotta · Ceramic · Paper · Natural
-              fibres · Mixed materials · Custom metal finishes
-            </p>
+          <div className="technical-note">
+            <strong>Good decorative lighting is not only what you see.</strong>
+            <span>
+              It is also the weight above the ceiling, the light source inside
+              the shade, the fixing nobody sees and the detail that still has
+              to work when the project opens.
+            </span>
           </div>
         </div>
       </section>
 
       <section className="section project-section">
         <div className="container">
-          <div className="section-intro">
-            <span className="section-label">PROJECT CONTEXT</span>
-
+          <div className="section-heading-row">
             <div>
-              <h2>
-                Developed for
-                <br />
-                the way projects
-                <br />
-                actually work.
-              </h2>
-
-              <p className="intro-copy">
-                Decorative lighting sits between design and execution. We
-                consider both sides of that equation.
-              </p>
+              <p className="eyebrow">DESIGNED AROUND THE PROJECT</p>
+              <h2>The details change with the space.</h2>
             </div>
+            <p>
+              A fixture is developed according to the environment in which it
+              has to live.
+            </p>
           </div>
 
           <div className="project-grid">
             <article>
               <span>01</span>
-              <h3>Scale &amp; proportion</h3>
+              <h3>Scale & proportion</h3>
               <p>
-                Fixture dimensions and visual presence are considered against
-                the architecture and the space.
+                Dimensions and drop developed around architecture, furniture
+                and viewing distance.
               </p>
             </article>
 
@@ -415,17 +407,17 @@ export default function Home() {
               <span>02</span>
               <h3>Technical coordination</h3>
               <p>
-                Dimensions, weight, fixing, mounting, electrical requirements,
-                dimming and relevant environmental requirements.
+                Lighting requirements considered alongside RCPs, fixing,
+                drivers, dimming and site conditions.
               </p>
             </article>
 
             <article>
               <span>03</span>
-              <h3>Samples &amp; mock-ups</h3>
+              <h3>Samples & mock-ups</h3>
               <p>
-                Material samples, finish references, CAD development and
-                physical samples can be used before production.
+                Material, finish, proportion and construction can be reviewed
+                before larger production.
               </p>
             </article>
 
@@ -433,173 +425,177 @@ export default function Home() {
               <span>04</span>
               <h3>Value engineering</h3>
               <p>
-                Where required, construction and material choices can be
-                reconsidered without losing the essential design intent.
+                Where required, material and construction alternatives can be
+                explored without losing the core design intent.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="process" className="dark-section">
+      <section className="process-section" id="process">
         <div className="container">
-          <div className="dark-heading">
-            <span className="section-label">PROCESS</span>
+          <div className="process-header">
+            <p className="eyebrow">THE PROCESS</p>
             <h2>
-              You bring the requirement.
+              From reference
               <br />
-              We take it forward.
+              to project delivery.
             </h2>
-            <p>
-              Start with whatever you have. We work from there toward a clear,
-              manufacturable and project-ready fixture.
-            </p>
           </div>
 
-          <div className="process-grid">
-            {process.map(([number, title, body]) => (
+          <div className="process-list">
+            {process.map(([number, title, description]) => (
               <article key={number}>
                 <span>{number}</span>
                 <h3>{title}</h3>
-                <p>{body}</p>
+                <p>{description}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section capability-section">
+      <section className="section project-types">
         <div className="container">
-          <div className="section-top">
-            <div>
-              <span className="section-label">PROJECTS</span>
-              <h2>Where the lighting belongs.</h2>
-            </div>
+          <p className="eyebrow">PROJECT CONTEXTS</p>
 
-            <p>
-              Maven is structured around project requirements, from hospitality
-              and high-end residential spaces to larger commercial environments.
-            </p>
+          <div className="project-type-list">
+            <span>Hotels</span>
+            <span>Resorts</span>
+            <span>Restaurants</span>
+            <span>Residences</span>
+            <span>Clubhouses</span>
+            <span>Commercial</span>
+            <span>Public Spaces</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="why-section">
+        <div className="container why-grid">
+          <div>
+            <p className="eyebrow">WHY MAVEN</p>
+            <h2>
+              Close to the
+              <br />
+              design. Close to
+              <br />
+              the project.
+            </h2>
           </div>
 
-          <div className="project-types">
-            {projectTypes.map((type, index) => (
-              <div key={type}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <strong>{type}</strong>
+          <div className="why-copy">
+            <p className="large">
+              Maven brings together design understanding, hospitality
+              experience, material knowledge and project-oriented development.
+            </p>
+
+            <div className="credentials">
+              <div>
+                <span>BACKGROUND</span>
+                <strong>Hospitality & procurement</strong>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="dark-section credibility">
-        <div className="container credibility-grid">
-          <div>
-            <span className="section-label">WHY MAVEN</span>
-            <h2>
-              Design understanding.
-              <br />
-              Manufacturing access.
-              <br />
-              Project accountability.
-            </h2>
-          </div>
-
-          <div className="credibility-copy">
-            <p>
-              Maven Decoratives is a design-led decorative lighting venture
-              focused on bespoke project requirements.
-            </p>
-
-            <p>
-              The team brings hands-on experience across hospitality
-              pre-openings, expansions, procurement, decorative lighting,
-              design and vendor development.
-            </p>
-
-            <p>
-              The aim is straightforward: understand the requirement properly,
-              develop the fixture carefully and make execution easier for the
-              project team.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="contact-section">
-        <div className="container contact-grid">
-          <div>
-            <span className="section-label">START A PROJECT</span>
-            <h2>
-              Have a fixture
-              <br />
-              in mind?
-            </h2>
-          </div>
-
-          <div className="contact-content">
-            <p>
-              Bring us the reference, drawing, BOQ or simply describe what you
-              need. We can take the requirement forward from there.
-            </p>
-
-            <div className="contact-actions">
-              <a
-                className="button button-dark"
-                href="https://wa.me/919646562880?text=Hello%20Maven%20Decoratives%2C%20I%20have%20a%20project%20requirement%20for%20bespoke%20decorative%20lighting.%20I%20would%20like%20to%20share%20the%20reference%2Fdesign%20and%20project%20details."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Share a Requirement
-              </a>
-
-              <a className="contact-link" href="tel:+919646562880">
-                Call +91 96465 62880
-              </a>
-
-              <a
-                className="contact-link"
-                href="mailto:maven.decoratives@gmail.com"
-              >
-                maven.decoratives@gmail.com
-              </a>
-            </div>
-
-            <div className="contact-note">
-              <span>REFERENCE · DRAWING · BOQ · IDEA</span>
-              <span>WE WILL TAKE IT FROM THERE.</span>
+              <div>
+                <span>EXPERIENCE</span>
+                <strong>15+ years across hotel projects</strong>
+              </div>
+              <div>
+                <span>APPROACH</span>
+                <strong>Design + contract manufacturing</strong>
+              </div>
+              <div>
+                <span>STARTING POINT</span>
+                <strong>Reference · concept · BOQ</strong>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="footer">
+      <section className="contact-section" id="contact">
         <div className="container">
-          <div className="footer-main">
-            <div>
-              <div className="footer-logo">MAVEN DECORATIVES</div>
-              <p>
-                Bespoke decorative lighting · Custom development · Project
-                execution
-              </p>
-            </div>
+          <p className="eyebrow">HAVE A REQUIREMENT?</p>
 
-            <div className="footer-links">
-              <a href="#approach">Approach</a>
-              <a href="#lighting">Lighting</a>
-              <a href="#materials">Materials</a>
-              <a href="#process">Process</a>
-              <a href="#contact">Contact</a>
-            </div>
+          <h2>
+            Send the reference.
+            <br />
+            Let&apos;s discuss the project.
+          </h2>
+
+          <p className="contact-copy">
+            Share a reference image, drawing, BOQ, dimensions or simply tell us
+            what you are looking to develop.
+          </p>
+
+          <div className="contact-actions">
+            <a
+              className="button button-dark"
+              href="https://wa.me/919646562880?text=Hello%20Maven%20Decoratives%2C%20I%20have%20a%20project%20requirement%20for%20bespoke%20decorative%20lighting.%20I%20would%20like%20to%20share%20the%20reference%2Fdesign%20and%20project%20details."
+              target="_blank"
+              rel="noreferrer"
+            >
+              WhatsApp Maven
+            </a>
+
+            <a className="contact-link" href="tel:+919646562880">
+              +91 96465 62880
+            </a>
+
+            <a
+              className="contact-link"
+              href="mailto:maven.decoratives@gmail.com"
+            >
+              maven.decoratives@gmail.com
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <div className="container footer-grid">
+          <div>
+            <div className="footer-brand">MAVEN DECORATIVES</div>
+            <p>
+              Bespoke decorative lighting
+              <br />
+              for projects.
+            </p>
           </div>
 
-          <div className="footer-bottom">
-            <span>Basava 2nd, Arekere, Bengaluru, Karnataka 560076</span>
-            <span>© {new Date().getFullYear()} Maven Decoratives</span>
+          <div>
+            <span className="footer-label">CONTACT</span>
+            <a href="tel:+919646562880">+91 96465 62880</a>
+            <a href="mailto:maven.decoratives@gmail.com">
+              maven.decoratives@gmail.com
+            </a>
           </div>
+
+          <div>
+            <span className="footer-label">LOCATION</span>
+            <p>
+              Bengaluru
+              <br />
+              India
+            </p>
+          </div>
+        </div>
+
+        <div className="container footer-bottom">
+          <span>© {new Date().getFullYear()} Maven Decoratives</span>
+          <span>Design-led contract manufacturing</span>
         </div>
       </footer>
+
+      <a
+        className="mobile-whatsapp"
+        href="https://wa.me/919646562880?text=Hello%20Maven%20Decoratives%2C%20I%20have%20a%20project%20requirement%20for%20bespoke%20decorative%20lighting.%20I%20would%20like%20to%20share%20the%20reference%2Fdesign%20and%20project%20details."
+        target="_blank"
+        rel="noreferrer"
+        aria-label="WhatsApp Maven Decoratives"
+      >
+        WhatsApp
+      </a>
     </main>
-  )
+  );
 }
