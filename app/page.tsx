@@ -56,8 +56,12 @@ export default function Home() {
       <header className="site-header">
         <div className="container header-inner">
           <Link href="#top" className="brand">
-            MAVEN
-            <span>DECORATIVES</span>
+            {/* MAVEN
+            <span>DECORATIVES</span> */}
+            <img
+              src="/maven-logo-600x200-transparent.png"
+              alt="Maven Decoratives"
+            />
           </Link>
 
           <nav className="desktop-nav">
@@ -170,8 +174,8 @@ export default function Home() {
               <span>03</span>
               <h3>Developed to be made</h3>
               <p>
-                Design intent is considered alongside construction, components,
-                finishes, light and fixing.
+                Design intent is developed alongside materials, construction,
+                finishes, light, fixing and manufacturing requirements.
               </p>
             </article>
 
@@ -340,19 +344,19 @@ export default function Home() {
             <article>
               <span>02</span>
               <h3>Control</h3>
-              <p>Triac · 0–10V · DALI · project-specific requirements</p>
+              <p>Triac · 0–10V · DALI · drivers· project-specific requirements</p>
             </article>
 
             <article>
               <span>03</span>
               <h3>Scale</h3>
-              <p>Diameter · height · drop · proportion · viewing distance</p>
+              <p>Diameter · height · drop · proportion · viewing distance· RCP</p>
             </article>
 
             <article>
               <span>04</span>
               <h3>Construction</h3>
-              <p>Weight · structure · fixing · safety · ceiling condition</p>
+              <p>Weight · structure · joints · fixing · safety · ceiling condition</p>
             </article>
 
             <article>
@@ -363,8 +367,8 @@ export default function Home() {
 
             <article>
               <span>06</span>
-              <h3>Coordination</h3>
-              <p>RCP · drivers · access · wiring · maintenance</p>
+              <h3>Manufacturing</h3>
+              <p>Fabrication · joints · finishing · assembly · quality control</p>
             </article>
           </div>
 
@@ -519,7 +523,7 @@ export default function Home() {
               </div>
               <div>
                 <span>APPROACH</span>
-                <strong>Design + contract manufacturing</strong>
+                <strong>Design + manufacturing development</strong>
               </div>
               <div>
                 <span>STARTING POINT</span>
@@ -673,7 +677,7 @@ export default function Home() {
               <span className="footer-label">LOCATION</span>
 
               <p>
-                Bengaluru
+                Dhanbad | Bengaluru
                 <br />
                 India
               </p>
@@ -695,7 +699,7 @@ export default function Home() {
           <div className="footer-bottom">
             <span>© {new Date().getFullYear()} Maven Decoratives</span>
             <span>India</span>
-            <span>Design-led contract manufacturing</span>
+            <span>Design-led manufacturing development</span>
           </div>
 
         </div>

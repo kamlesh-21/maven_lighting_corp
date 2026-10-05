@@ -1,0 +1,50 @@
+# Maven Decoratives
+
+> Maven Decoratives develops bespoke decorative lighting for hospitality, commercial and residential projects across India.
+
+## What Maven Does
+
+Maven develops custom decorative lighting from references, concepts, sketches or BOQs through design development, engineering, material and finish selection, sampling, manufacturing development, fabrication and project delivery.
+
+## Lighting
+
+- Custom chandeliers
+- Custom pendant lighting
+- Wall sconces
+- Feature lighting
+- Custom decorative fixtures
+- Hospitality decorative lighting
+
+## Technical Approach
+
+Maven considers the complete fixture, including:
+
+- Light quality: CRI, CCT, lumen output, beam angle and glare
+- Controls: drivers, Triac, 0–10V, DALI and project requirements
+- Scale: diameter, height, drop, proportion and viewing distance
+- Construction: weight, structure, joints, fixing, safety and ceiling conditions
+- Materials: metal, glass, crystal, stone, fabric and mixed finishes
+- Manufacturing: fabrication, assembly, finishing and quality control
+- Coordination: RCPs, drivers, wiring, access, maintenance and installation
+
+## Project Approach
+
+Reference → Interpretation → Material → Development → Sampling → Production → Delivery
+
+## Who Maven Works With
+
+- Architects
+- Interior designers
+- Lighting consultants
+- PMCs and project teams
+- Procurement teams
+- Developers and owners
+
+## Location
+
+Dhanbad | Bengaluru
+India
+
+## Website
+
+https://mavendecoratives.com/

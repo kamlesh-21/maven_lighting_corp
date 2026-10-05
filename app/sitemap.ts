@@ -1,3 +1,5 @@
+//maven_lighting_corp/app/lib/sitemap.ts
+
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -6,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: new Date('2026-10-05'),
       changeFrequency: 'monthly',
       priority: 1,
     },

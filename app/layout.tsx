@@ -108,7 +108,7 @@ export const metadata: Metadata = {
 
   icons: {
     icon: '/icon2.png',
-    apple: '/apple-icon.png',
+    apple: '/icon2.png',
   },
 }
 
@@ -155,15 +155,21 @@ const organizationSchema = {
     name: 'India',
   },
 
-  knowsAbout: [
+knowsAbout: [
     'Bespoke decorative lighting',
-    'Hospitality lighting',
-    'Custom chandeliers',
-    'Custom pendant lighting',
-    'Decorative wall lighting',
+    'Custom chandelier development',
+    'Custom pendant and wall light development',
+    'Decorative lighting for hospitality projects',
     'Lighting materials and finishes',
+    'Material selection and specification',
+    'Lighting fixture engineering',
     'Custom fixture development',
-    'Lighting fabrication',
+    'Prototype and sample development',
+    'Manufacturing process selection',
+    'Fabrication and finishing',
+    'Value engineering',
+    'Quality control and production coordination',
+    'Installation and delivery coordination',
   ],
 }
 
@@ -207,7 +213,7 @@ const serviceSchema = {
 
   name: 'Bespoke Decorative Lighting',
 
-  serviceType: 'Custom Decorative Lighting',
+  serviceType: 'Bespoke Decorative Lighting Development and Manufacturing',
 
   provider: {
     '@id': `${siteUrl}/#organization`,
@@ -219,8 +225,8 @@ const serviceSchema = {
   },
 
   description:
-    'Custom decorative lighting developed from references, concepts or BOQs through design development, material and finish selection, sampling, fabrication and delivery.',
-
+  'Bespoke decorative lighting developed from references, concepts or BOQs through design, engineering, manufacturing and delivery.',
+  
   audience: {
     '@type': 'BusinessAudience',
     audienceType:
