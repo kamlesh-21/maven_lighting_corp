@@ -1,4 +1,4 @@
-//maven_lighting_corp/app/lib/sitemap.ts
+//maven_lighting_corp/app/sitemap.ts
 
 import type { MetadataRoute } from 'next'
 

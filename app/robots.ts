@@ -1,4 +1,4 @@
-//maven_lighting_corp/app/lib/robots.ts
+//maven_lighting_corp/app/robots.ts
 
 import type { MetadataRoute } from 'next'
 
