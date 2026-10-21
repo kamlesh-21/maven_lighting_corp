@@ -52,37 +52,7 @@ const collaborators = [
 
 export default function Home() {
   return (
-    <main>
-      <header className="site-header">
-        <div className="container header-inner">
-          <Link href="#top" className="brand">
-            {/* MAVEN
-            <span>DECORATIVES</span> */}
-            <img
-              src="/maven-logo-600x200-transparent.png"
-              alt="Maven Decoratives"
-            />
-          </Link>
-
-          <nav className="desktop-nav">
-            <Link href="#approach">Approach</Link>
-            <Link href="#lighting">Lighting</Link>
-            <Link href="#materials">Materials</Link>
-            <Link href="#process">Process</Link>
-            <Link href="#contact">Contact</Link>
-          </nav>
-
-          <a
-            className="header-cta"
-            href="https://wa.me/919646562880?text=Hello%20Maven%20Decoratives%2C%20I%20have%20a%20project%20requirement%20for%20bespoke%20decorative%20lighting.%20I%20would%20like%20to%20share%20the%20reference%2Fdesign%20and%20project%20details."
-            target="_blank"
-            rel="noreferrer"
-          >
-            Discuss a project
-          </a>
-        </div>
-      </header>
-
+    <main id="main-content">
       <section className="hero" id="top">
         <div className="hero-image">
           <img src="/images/hero-chandelier.png" alt="Decorative chandelier" />
@@ -587,124 +557,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <section className="contact-section" id="contact">
-        <div className="container">
-          <p className="eyebrow">HAVE A REQUIREMENT?</p>
-
-          <h2>
-            Send the reference.
-            <br />
-            Let&apos;s discuss the project.
-          </h2>
-
-          <p className="contact-copy">
-            Share a reference image, drawing, BOQ, dimensions or simply tell us
-            what you are looking to develop.
-          </p>
-
-          <div className="contact-actions">
-            <a
-              className="button button-dark"
-              href="https://wa.me/919646562880?text=Hello%20Maven%20Decoratives%2C%20I%20have%20a%20project%20requirement%20for%20bespoke%20decorative%20lighting.%20I%20would%20like%20to%20share%20the%20reference%2Fdesign%20and%20project%20details."
-              target="_blank"
-              rel="noreferrer"
-            >
-              WhatsApp Maven
-            </a>
-
-            <a className="contact-link" href="tel:+919646562880">
-              +91 96465 62880
-            </a>
-
-            <a
-              className="contact-link"
-              href="mailto:kamlesh@mavendecoratives.com"
-            >
-              kamlesh@mavendecoratives.com
-            </a>
-          </div>
-        </div>
-      </section> */}
-
-      <footer className="site-footer">
-        <div className="container">
-
-          <div className="footer-main">
-            <div className="footer-brand-block">
-              <div className="footer-brand-large">
-                MAVEN
-                <br />
-                DECORATIVES
-              </div>
-
-              <p className="footer-description">
-                Bespoke decorative lighting for projects,
-                from drawings to production and delivery.
-              </p>
-            </div>
-
-            <div className="footer-column">
-              <span className="footer-label">EXPLORE</span>
-
-              <a href="#approach">Approach</a>
-              <a href="#technical">Technical</a>
-              <a href="#collaborators">Who We Work With</a>
-              <a href="#process">Process</a>
-              <a href="#contact">Contact</a>
-            </div>
-
-            <div className="footer-column">
-              <span className="footer-label">CONTACT</span>
-
-              <a href="mailto:kamlesh@mavendecoratives.com">
-                kamlesh@mavendecoratives.com
-              </a>
-
-              <a href="tel:+919646562880">
-                +91 96465 62880
-              </a>
-
-              <a
-                href="https://wa.me/919646562880"
-                target="_blank"
-                rel="noreferrer"
-              >
-                WhatsApp
-              </a>
-            </div>
-
-            <div className="footer-column">
-              <span className="footer-label">LOCATION</span>
-
-              <p>
-                Dhanbad | Bengaluru
-                <br />
-                India
-              </p>
-
-              <span className="footer-label footer-location-label">
-                PROJECTS
-              </span>
-
-              <p>
-                Hospitality
-                <br />
-                Commercial
-                <br />
-                Residential
-              </p>
-            </div>
-          </div>
-
-          <div className="footer-bottom">
-            <span>© {new Date().getFullYear()} Maven Decoratives</span>
-            <span>India</span>
-            <span>Design-led manufacturing development</span>
-          </div>
-
-        </div>
-      </footer>
-
       <a
         className="mobile-whatsapp"
         href="https://wa.me/919646562880?text=Hello%20Maven%20Decoratives%2C%20I%20have%20a%20project%20requirement%20for%20bespoke%20decorative%20lighting.%20I%20would%20like%20to%20share%20the%20reference%2Fdesign%20and%20project%20details."
@@ -712,7 +564,7 @@ export default function Home() {
         rel="noreferrer"
         aria-label="WhatsApp Maven Decoratives"
       >
-        WhatsApp
+        WhatsApp22
       </a>
     </main>
   );
