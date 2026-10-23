@@ -1,4 +1,4 @@
-import Link from "next/link";
+import DevelopmentRecord from "./components/DevelopmentRecord";
 import RequirementForm from "./components/RequirementForm";
 
 const lightingCategories = [
@@ -171,8 +171,8 @@ export default function Home() {
           </h2>
         </div>
       </section>
-
-      <section className="section reference-section">
+      <DevelopmentRecord />
+      {/* <section className="section reference-section">
         <div className="container">
           <div className="section-intro">
             <p className="eyebrow">FROM IDEA TO FIXTURE</p>
@@ -212,7 +212,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="section lighting-section" id="lighting">
         <div className="container">
