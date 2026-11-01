@@ -1564,3 +1564,239 @@ img {
   .fdr-process li:last-child { border-bottom: 0; }
   .fdr-bottom, .fdr-bar--foot { flex-direction: column; align-items: flex-start; }
 }
+
+
+
+/* Hall of Fame: compact horizontal discovery rail */
+
+/* HALL OF FAME */
+
+.hof {
+  --pad: max(34px, calc((100vw - 1240px) / 2 + 24px));
+  background: #0f1b24;
+  color: #d6dde2;
+}
+
+.hof-track {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 20px;
+  padding: 8px var(--pad) 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--pad);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hof-track::-webkit-scrollbar {
+  display: none;
+}
+
+.hof-card {
+  flex: 0 0 calc((100vw - 2 * var(--pad) - 40px) / 3);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid #243746;
+  background: #14232e;
+  scroll-snap-align: start;
+  transition: border-color .25s;
+}
+
+.hof-card:hover {
+  border-color: #8d7447;
+}
+
+.hof-art {
+  position: relative;
+  flex: none;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #192b38;
+}
+
+.hof-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform .5s ease;
+}
+
+.hof-card:hover .hof-svg {
+  transform: scale(1.04);
+}
+
+.hof-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 17px 19px 19px;
+}
+
+.hof-card .hof-cap {
+  margin: 0 0 8px;
+  color: #8b9ca8;
+  font-size: .6rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.hof-card h3 {
+  margin: 0 0 7px;
+  color: #f4efe3;
+  font-family: Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.hof-meta {
+  margin: 0 0 15px;
+  color: #c8a96a;
+  font-size: .78rem;
+  line-height: 1.5;
+}
+
+.hof-inspires,
+.hof-eng {
+  width: 100%;
+  padding-top: 12px;
+  border-top: 1px solid #2b3e4c;
+}
+
+.hof-inspires span,
+.hof-eng span {
+  color: #c8a96a;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+}
+
+.hof-inspires p {
+  margin: 7px 0 0;
+  color: #c9d3d9;
+  font-size: .82rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.hof-eng {
+  margin-top: 14px;
+}
+
+.hof-eng ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hof-eng li {
+  padding: 4px 9px;
+  border: 1px solid #2f4658;
+  border-radius: 999px;
+  color: #b4c0c8;
+  font-size: .7rem;
+  line-height: 1.5;
+}
+
+.hof-no {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  color: #f4efe3;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: .68rem;
+  text-shadow: 0 1px 5px #000;
+}
+
+.hof-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.hof-controls button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #526b7c;
+  border-radius: 50%;
+  background: transparent;
+  color: #d6dde2;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.hof-controls button:hover {
+  border-color: #c8a96a;
+  color: #c8a96a;
+}
+
+.hof-bottom-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-bottom: 16px;
+}
+
+.hof-bottom-controls > span {
+  color: #8fa1ad;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: .7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.hof-legal {
+  margin: 8px 0 0;
+  color: #6f8494;
+  font-size: .72rem;
+  line-height: 1.6;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .hof-card {
+    flex-basis: 70vw;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hof {
+    --pad: 20px;
+  }
+
+  .hof-track {
+    gap: 13px;
+  }
+
+  .hof-card {
+    flex-basis: 86vw;
+  }
+
+  .hof-card-content {
+    padding: 15px;
+  }
+
+  .hof-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hof-card,
+  .hof-svg {
+    transition: none;
+  }
+}
+

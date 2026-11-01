@@ -1,5 +1,6 @@
 import DevelopmentRecord from "./components/DevelopmentRecord";
 import RequirementForm from "./components/RequirementForm";
+import HallOfFame from "./components/HallOfFame";
 
 const lightingCategories = [
   { title: "Chandeliers", image: "/images/cat-chandeliers.png" },
@@ -172,6 +173,7 @@ export default function Home() {
         </div>
       </section>
       <DevelopmentRecord />
+      <HallOfFame />
       {/* <section className="section reference-section">
         <div className="container">
           <div className="section-intro">
