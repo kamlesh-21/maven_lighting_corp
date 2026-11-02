@@ -9,11 +9,13 @@ export default function SiteHeader() {
         </Link>
 
         <nav className="desktop-nav" aria-label="Main navigation">
-          <Link href="/studio">Studio</Link>
-          <Link href="/#approach">Approach</Link>
+
+          {/* <Link href="/#approach">Approach</Link> */}
+          <Link href="/#development-record">Development</Link>
+          {/* <Link href="/#materials">Materials</Link> */}
+          <Link href="/#hall-of-fame">Design Inspiration</Link>
           <Link href="/#lighting">Lighting</Link>
-          <Link href="/#materials">Materials</Link>
-          <Link href="/#process">Process</Link>
+          <Link href="/studio">Studio</Link>
           <Link href="/#contact">Contact</Link>
         </nav>
 

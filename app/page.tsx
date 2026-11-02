@@ -12,11 +12,11 @@ const lightingCategories = [
 ];
 
 const materials = [
-  { title: "Brass & Metal", image: "/images/mat-brass.png" },
-  { title: "Crystal", image: "/images/mat-crystal.png" },
-  { title: "Fabric", image: "/images/mat-fabric.png" },
-  { title: "Glass", image: "/images/mat-glass.png" },
-  { title: "Mixed Materials", image: "/images/mat-mixed.png" },
+  { title: "Metals", image: "/images/mat-brass.png" },
+  { title: "Crystal", image: "/images/masters/mat-crystal.avif" },
+  { title: "Fabric", image: "/images/masters/mat-fabric.avif" },
+  { title: "Glass", image: "/images/masters/mat-glass.avif" },
+  { title: "Mixed Materials", image: "/images/masters/mat-mixed.avif" },
   { title: "Finishes", image: "/images/mat-finishes.png" },
 ];
 
@@ -102,11 +102,9 @@ export default function Home() {
             <div>
               <p className="eyebrow">THE MAVEN APPROACH</p>
               <h2>
-                Not a catalogue.
+                From Design Intent
                 <br />
-                A fixture developed
-                <br />
-                for the project.
+                to a developed fixture
               </h2>
             </div>
 
@@ -127,35 +125,31 @@ export default function Home() {
               <span>01</span>
               <h3>Reference as a starting point</h3>
               <p>
-                Existing references are interpreted rather than simply
-                reproduced.
+                Understand the reference, architectural context, proportions and intended visual effect
               </p>
             </article>
 
             <article>
               <span>02</span>
-              <h3>Designed around context</h3>
+              <h3>Develop the fixture</h3>
               <p>
-                Scale, proportion, ceiling height, material and architectural
-                setting inform the fixture.
+                Work through dimensions, materials, finishes, light output and construction requirements.
               </p>
             </article>
 
             <article>
               <span>03</span>
-              <h3>Developed to be made</h3>
+              <h3>Coordinate the details</h3>
               <p>
-                Design intent is developed alongside materials, construction,
-                finishes, light, fixing and manufacturing requirements.
+                Align drawings, samples, mock-ups, mounting, weight and site constraints.
               </p>
             </article>
 
             <article>
               <span>04</span>
-              <h3>Built for project delivery</h3>
+              <h3>Take it towards delivery</h3>
               <p>
-                Drawings, samples, approvals, quantities, timelines and site
-                requirements are part of the process.
+                Coordinate manufacturing, approvals, quality checks and project timelines.
               </p>
             </article>
           </div>
@@ -171,6 +165,9 @@ export default function Home() {
             Not the fixture.
           </h2>
         </div>
+        {/* <div>
+          <img src="./images/mat-mixed.png"></img>
+        </div> */}
       </section>
       <DevelopmentRecord />
       <HallOfFame />
@@ -277,10 +274,18 @@ export default function Home() {
           <div className="material-vocabulary">
             <span>ALABASTER</span>
             <span>MARBLE</span>
+            <span>STONES</span>
             <span>CANE</span>
+            <span>RATTAN</span>
             <span>GLASS</span>
             <span>CRYSTAL</span>
-            <span>METAL</span>
+            <span>BRASS</span>
+            <span>BRONZE</span>
+            <span>ALUMINIUM</span>
+            <span>IRON</span>
+            <span>STEEL</span>
+            <span>ACRYLIC</span>
+            <span>RESIN</span>
             <span>FABRIC</span>
             <span>MIXED MATERIALS</span>
           </div>
@@ -298,12 +303,14 @@ export default function Home() {
                 The details make it work.
               </h2>
             </div>
-
-            <p>
+            <div>
+              <img src="/images/beauty.avif" alt="Technical lighting" />
+            </div>
+            {/* <p>
               Decorative lighting has to perform as part of a larger
               environment. We consider the technical and practical details
               that sit behind the design.
-            </p>
+            </p> */}
           </div>
 
           <div className="technical-grid">
@@ -328,13 +335,13 @@ export default function Home() {
             <article>
               <span>04</span>
               <h3>Construction</h3>
-              <p>Weight · structure · joints · fixing · safety · ceiling condition</p>
+              <p>Weight · structure · joints · fixing · safety · IP rating</p>
             </article>
 
             <article>
               <span>05</span>
               <h3>Material</h3>
-              <p>Metal · glass · crystal · stone · fabric · mixed finishes</p>
+              <p>Metal · glass · crystal · stone · organic · fabric · finishes</p>
             </article>
 
             <article>
@@ -355,7 +362,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section project-section">
+      {/* <section className="section project-section">
         <div className="container">
           <div className="section-heading-row">
             <div>
@@ -406,9 +413,9 @@ export default function Home() {
             </article>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="section collaborators-section" id="collaborators">
+      {/* <section className="section collaborators-section" id="collaborators">
         <div className="container">
           <div className="section-heading-row collaborators-heading">
             <div>
@@ -440,9 +447,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="process-section" id="process">
+      {/* <section className="process-section">
         <div className="container">
           <div className="process-header">
             <p className="eyebrow">THE PROCESS</p>
@@ -463,9 +470,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="why-section">
+      {/* <section className="why-section">
         <div className="container why-grid">
           <div>
             <p className="eyebrow">WHY MAVEN</p>
@@ -504,7 +511,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="contact-section" id="contact">
         <div className="container">

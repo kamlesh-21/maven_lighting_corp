@@ -16,12 +16,13 @@ export default function SiteFooter() {
 
           <div className="footer-column">
             <span className="footer-label">EXPLORE</span>
-            <Link href="/studio">Studio</Link>
-            <Link href="/#approach">Approach</Link>
-            <Link href="/#technical">Technical</Link>
-            <Link href="/#collaborators">Who We Work With</Link>
-            <Link href="/#process">Process</Link>
-            <Link href="/#contact">Contact</Link>
+          <Link href="/#approach">Approach</Link>
+          <Link href="/#development-record">Development</Link>
+          <Link href="/#materials">Materials</Link>
+          <Link href="/#hall-of-fame">Design Inspiration</Link>
+          <Link href="/#lighting">Lighting</Link>
+          <Link href="/studio">Studio</Link>
+          <Link href="/#contact">Contact</Link>
           </div>
 
           <div className="footer-column">
