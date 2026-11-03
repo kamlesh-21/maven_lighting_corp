@@ -34,8 +34,11 @@ export default function HallOfFame() {
   });
 
   const scrollCards = (direction: number) => {
+    const card = trackRef.current?.querySelector<HTMLElement>(".hof-card");
+    const step = card ? (card.offsetWidth + 20) * 4 : 1200;
+
     trackRef.current?.scrollBy({
-      left: direction * 620,
+      left: direction * step,
       behavior: "smooth",
     });
   };
@@ -47,20 +50,41 @@ export default function HallOfFame() {
       aria-labelledby="hof-title"
     >
       <div className="container">
-        <p className="eyebrow">HALL OF FAME</p>
+        <div className="hof-head">
+          <div>
+            <p className="eyebrow">HALL OF FAME</p>
 
-        <div className="hof-intro">
-          <h2 id="hof-title">
-            The inspiration behind
-            <br />
-            our bespoke work.
-          </h2>
+            <div className="hof-intro">
+              <h2 id="hof-title">
+                The inspiration behind
+                <br />
+                our bespoke work.
+              </h2>
 
-          <p>
-            An exploration of designers, ateliers and craft traditions that
-            have shaped decorative lighting. These references inform how we
-            approach light, form, material, craftsmanship and detail.
-          </p>
+              <p>
+                Designers and ateliers whose thinking shapes our work, and what
+                we consider when developing each fixture.
+              </p>
+            </div>
+          </div>
+
+          <div className="hof-controls">
+            <button
+              type="button"
+              onClick={() => scrollCards(-1)}
+              aria-label="Previous references"
+            >
+              &#8592;
+            </button>
+
+            <button
+              type="button"
+              onClick={() => scrollCards(1)}
+              aria-label="Next references"
+            >
+              &#8594;
+            </button>
+          </div>
         </div>
       </div>
 
@@ -85,21 +109,15 @@ export default function HallOfFame() {
             </div>
 
             <div className="hof-card-content">
-              <p className="hof-cap">{designer.discipline}</p>
+              <p className="hof-cap">{designer.period}</p>
 
               <h3>{designer.name}</h3>
 
-              <p className="hof-meta">{designer.period}</p>
+              <div className="hof-block">
+                <span>BEHIND THE FORM</span>
 
-              <div className="hof-inspires">
-                <span>MAVEN CONCEPT DIRECTION</span>
-                <p>{designer.mavenInterpretation}</p>
-              </div>
-
-              <div className="hof-eng">
-                <span>WHAT WE ENGINEER</span>
                 <ul>
-                  {designer.developmentConsiderations.map((item, itemIndex) => (
+                  {designer.developmentConsiderations.slice(0, 3).map((item, itemIndex) => (
                     <li key={`${designer.slug}-${itemIndex}`}>{item}</li>
                   ))}
                 </ul>
@@ -107,28 +125,6 @@ export default function HallOfFame() {
             </div>
           </article>
         ))}
-      </div>
-
-      <div className="container hof-bottom-controls">
-        <span>Explore {designers.length} design references</span>
-
-        <div className="hof-controls">
-          <button
-            type="button"
-            onClick={() => scrollCards(-1)}
-            aria-label="Previous references"
-          >
-            &#8592;
-          </button>
-
-          <button
-            type="button"
-            onClick={() => scrollCards(1)}
-            aria-label="Next references"
-          >
-            &#8594;
-          </button>
-        </div>
       </div>
 
       <div className="container">
@@ -142,5 +138,3 @@ export default function HallOfFame() {
     </section>
   );
 }
-
-

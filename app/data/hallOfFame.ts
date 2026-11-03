@@ -117,10 +117,10 @@ export const designers: Designer[] = [
       "Large-scale custom installations",
     ],
     developmentConsiderations: [
-      "Overall dimensions and visual proportions",
-      "Suspension structure and total weight",
-      "Component assembly and installation access",
       "Crystal, metal and finish coordination",
+      "Overall dimensions and visual proportions",
+      "Component assembly and installation access",
+      "Suspension structure and total weight",
     ],
   },
 
