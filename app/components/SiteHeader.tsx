@@ -1,11 +1,20 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="container header-inner">
         <Link href="/#top" className="brand" aria-label="Maven Decoratives home">
-          <img src="/maven-logo-600x200-transparent.png" alt="Maven Decoratives" />
+          {/* <img src="/maven-logo-600x200-transparent.png" alt="Maven Decoratives" /> */}
+          <Image
+            src="/maven-logo-600x200-transparent.webp"
+            alt="Maven Decoratives"
+            width={600}
+            height={200}
+            sizes="140px"
+            priority
+            />
         </Link>
 
         <nav className="desktop-nav" aria-label="Main navigation">

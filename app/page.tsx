@@ -1,23 +1,24 @@
 import DevelopmentRecord from "./components/DevelopmentRecord";
 import RequirementForm from "./components/RequirementForm";
 import HallOfFame from "./components/HallOfFame";
+import Image from "next/image";
 
 const lightingCategories = [
-  { title: "Chandeliers", image: "/images/cat-chandeliers.png" },
-  { title: "Pendants", image: "/images/cat-pendant.png" },
-  { title: "Wall Sconces", image: "/images/cat-wall-sconce.png" },
-  { title: "Custom Fixtures", image: "/images/cat-custom.png" },
-  { title: "Hospitality Lighting", image: "/images/cat-hospitality.png" },
-  { title: "Feature Lighting", image: "/images/cat-feature.png" },
+  { title: "Chandeliers", image: "/images/cat-chandeliers.webp" },
+  { title: "Pendants", image: "/images/cat-pendant.webp" },
+  { title: "Wall Sconces", image: "/images/cat-wall-sconce.webp" },
+  { title: "Custom Fixtures", image: "/images/cat-custom.webp" },
+  { title: "Hospitality Lighting", image: "/images/cat-hospitality.webp" },
+  { title: "Feature Lighting", image: "/images/cat-feature.webp" },
 ];
 
 const materials = [
-  { title: "Metals", image: "/images/mat-brass.png" },
+  { title: "Metals", image: "/images/mat-brass.webp" },
   { title: "Crystal", image: "/images/masters/mat-crystal.avif" },
   { title: "Fabric", image: "/images/masters/mat-fabric.avif" },
   { title: "Glass", image: "/images/masters/mat-glass.avif" },
   { title: "Mixed Materials", image: "/images/masters/mat-mixed.avif" },
-  { title: "Finishes", image: "/images/mat-finishes.png" },
+  { title: "Finishes", image: "/images/mat-finishes.webp" },
 ];
 
 const process = [
@@ -56,7 +57,13 @@ export default function Home() {
     <main id="main-content">
       <section className="hero" id="top">
         <div className="hero-image">
-          <img src="/images/hero-chandelier.png" alt="Decorative chandelier" />
+          <Image
+            src="/images/hero-chandelier.webp"
+            alt="Decorative chandelier"
+            fill
+            priority
+            sizes="100vw"
+          />
         </div>
 
         <div className="container hero-content">
@@ -232,7 +239,12 @@ export default function Home() {
                 className={`image-card image-card-${index + 1}`}
                 key={item.title}
               >
-                <img src={item.image} alt={item.title} />
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 60vw"
+                />
                 <div className="image-card-caption">
                   <span>0{index + 1}</span>
                   <h3>{item.title}</h3>
@@ -262,8 +274,15 @@ export default function Home() {
           <div className="materials-grid">
             {materials.map((item, index) => (
               <article className="material-card" key={item.title}>
-                <img src={item.image} alt={item.title} />
-                <div>
+                <div className="material-card-image">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="material-card-caption">
                   <span>0{index + 1}</span>
                   <h3>{item.title}</h3>
                 </div>
@@ -303,8 +322,16 @@ export default function Home() {
                 The details make it work.
               </h2>
             </div>
-            <div>
+            {/* <div>
               <img src="/images/beauty.avif" alt="Technical lighting" />
+            </div> */}
+            <div className="technical-image">
+              <Image
+                src="/images/beauty.avif"
+                alt="Technical lighting"
+                fill
+                sizes="(max-width: 900px) 100vw, 40vw"
+              />
             </div>
             {/* <p>
               Decorative lighting has to perform as part of a larger

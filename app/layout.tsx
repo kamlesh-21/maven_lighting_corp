@@ -76,7 +76,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: '/images/hero-chandelier.png',
+        url: '/images/hero-chandelier.webp',
         width: 1600,
         height: 1000,
         alt: 'Bespoke decorative lighting by Maven Decoratives',
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     description:
       'Design-led bespoke decorative lighting for hospitality, commercial and residential projects across India.',
 
-    images: ['/images/hero-chandelier.png'],
+    images: ['/images/hero-chandelier.webp'],
   },
 
   robots: {
@@ -109,8 +109,8 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: '/icon2.png',
-    apple: '/icon2.png',
+    icon: '/icon2.webp',
+    apple: '/icon2.webp',
   },
 }
 
@@ -134,7 +134,7 @@ const organizationSchema = {
 
   logo: {
     '@type': 'ImageObject',
-    url: `${siteUrl}/icon2.png`,
+    url: `${siteUrl}/icon2.webp`,
   },
 
   description:
