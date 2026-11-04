@@ -1,50 +1,33 @@
 # Maven Decoratives
 
-> Maven Decoratives develops bespoke decorative lighting for hospitality, commercial and residential projects across India.
+> Maven Decoratives develops bespoke decorative lighting for hospitality, commercial and residential projects across India. A project can start from a reference image, a designer's sketch, a drawing or a BOQ (bill of quantities), and is developed into a finished fixture. Maven coordinates the design intent, materials, construction, approvals and delivery.
 
-## What Maven Does
+To start a project, send a requirement, reference, drawing or BOQ through the contact form, WhatsApp or email.
 
-Maven develops custom decorative lighting from references, concepts, sketches or BOQs through design development, engineering, material and finish selection, sampling, manufacturing development, fabrication and project delivery.
+## Site
 
-## Lighting
+- [Home page](https://mavendecoratives.com/): Overview of the Maven approach, lighting categories, materials, technical considerations and the requirement form
+- [The Maven approach](https://mavendecoratives.com/#approach): How a reference is understood, developed into a fixture, coordinated (drawings, samples, mock-ups, mounting, weight) and taken towards delivery
+- [Fixture development record](https://mavendecoratives.com/#development-record): An illustrative worked example of how a bespoke fixture is documented behind the scenes, from reference to technical handover: key parameters, layout and spacing, construction, bill of materials and weight, specification, scope, risks and handover
+- [Lighting categories](https://mavendecoratives.com/#lighting): Chandeliers, pendants, wall sconces, custom fixtures, hospitality lighting and feature lighting
+- [Materials and finishes](https://mavendecoratives.com/#materials): Metals, crystal, fabric, glass, mixed materials and finishes
+- [Technical considerations](https://mavendecoratives.com/#technical): Light, control, scale, construction, material and manufacturing details behind a decorative fixture
 
-- Custom chandeliers
-- Custom pendant lighting
-- Wall sconces
-- Feature lighting
-- Custom decorative fixtures
-- Hospitality decorative lighting
+## Studio
 
-## Technical Approach
+- [Maven Studio](https://mavendecoratives.com/studio): All articles on how bespoke decorative lighting is designed, made and finished
+- [From Reference Image to Manufacturable Object: A Technical Workflow for Bespoke Lighting](https://mavendecoratives.com/studio/from-reference-image-to-manufacturable-object): A technical workflow for taking a reference image to a manufacturable bespoke lighting fixture
+- [How to Calculate Chandelier Weight: Rod Count, Spacing, Structure and Ceiling Loads](https://mavendecoratives.com/studio/how-to-calculate-chandelier-weight): How to calculate chandelier weight from rod count, spacing and structure, and what it means for ceiling loads
+- [Inside a Metal Foundry: How Casting Works, from Pattern to Finished Component](https://mavendecoratives.com/studio/metal-casting-process-foundry): How metal casting works in a foundry, from pattern to finished component
+- [PVD vs Electroplating vs Lacquer: Choosing a Finish for Decorative Metalwork](https://mavendecoratives.com/studio/pvd-vs-electroplating-vs-lacquer): Compares PVD, electroplating and lacquer as finishes for decorative metalwork
+- [Brass vs Kansa: Composition, Finishes and Material Selection for Interior Design](https://mavendecoratives.com/studio/brass-vs-kansa-interior-design): Compares brass and kansa in composition, finishes and material selection for interior design
 
-Maven considers the complete fixture, including:
+## Learn the design references
 
-- Light quality: CRI, CCT, lumen output, beam angle and glare
-- Controls: drivers, Triac, 0–10V, DALI and project requirements
-- Scale: diameter, height, drop, proportion and viewing distance
-- Construction: weight, structure, joints, fixing, safety and ceiling conditions
-- Materials: metal, glass, crystal, stone, fabric and mixed finishes
-- Manufacturing: fabrication, assembly, finishing and quality control
-- Coordination: RCPs, drivers, wiring, access, maintenance and installation
+- [Hall of Fame](https://mavendecoratives.com/#hall-of-fame): Designers and ateliers that inspire Maven's work, with the principles of their design language and what each is known for: Alexander Calder (mobiles and balance); Venini (Murano glass, founded 1921); Serge Mouille (articulated metal lighting); Saint-Louis (French crystal, founded 1586); Poul Henningsen (layered reflector shades and glare control); Carlo Scarpa (textured and layered glass, with Venini); Gino Sarfatti (Arteluce, component-led lighting); Barovier & Toso (Venetian crystal and chandeliers, heritage from 1295); Seguso Vetri d'Arte (sculptural Murano glass, established 1933); Mathieu Lustrerie (chandelier restoration and reproduction); Alexander Lamont (specialist materials such as straw marquetry and shagreen); Diego Giacometti (bronze furniture and objects); OCHRE (organic decorative forms); APPARATUS (New York design studio, founded 2012); Charles Burnand (collectible design and illuminated sculpture); Pinto (French interior architecture and decoration studio); Michael Anastassiades (geometric, minimal lighting). Each reference lists the development considerations Maven takes into account, such as weight, fixing, glare and finish. Illustrations are original Maven interpretations, not works by the designers named, and no affiliation or endorsement is implied.
 
-## Project Approach
+## Contact
 
-Reference → Interpretation → Material → Development → Sampling → Production → Delivery
-
-## Who Maven Works With
-
-- Architects
-- Interior designers
-- Lighting consultants
-- PMCs and project teams
-- Procurement teams
-- Developers and owners
-
-## Location
-
-Dhanbad | Bengaluru
-India
-
-## Website
-
-https://mavendecoratives.com/
+- [Contact and requirement form](https://mavendecoratives.com/#contact): Share a project requirement, reference, drawing or BOQ
+- [WhatsApp](https://wa.me/919646562880): Direct message to Maven Decoratives
+- [Email](mailto:kamlesh@mavendecoratives.com): kamlesh@mavendecoratives.com
