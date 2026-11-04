@@ -21,6 +21,7 @@ To start a project, send a requirement, reference, drawing or BOQ through the co
 - [Inside a Metal Foundry: How Casting Works, from Pattern to Finished Component](https://mavendecoratives.com/studio/metal-casting-process-foundry): How metal casting works in a foundry, from pattern to finished component
 - [PVD vs Electroplating vs Lacquer: Choosing a Finish for Decorative Metalwork](https://mavendecoratives.com/studio/pvd-vs-electroplating-vs-lacquer): Compares PVD, electroplating and lacquer as finishes for decorative metalwork
 - [Brass vs Kansa: Composition, Finishes and Material Selection for Interior Design](https://mavendecoratives.com/studio/brass-vs-kansa-interior-design): Compares brass and kansa in composition, finishes and material selection for interior design
+- [Heavy Chandelier Installation: Structural Support, Suspension Systems and Architectural Coordination](https://mavendecoratives.com/studio/heavy-chandelier-installation): A practical guide to structural support, suspension systems, anchors, RCP coordination and maintenance access for heavy chandelier installations
 
 ## Learn the design references
 

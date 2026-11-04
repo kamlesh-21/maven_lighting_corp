@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect width="1600" height="900" fill="#f7f6f2"/>
+<text x="90" y="92" font-family="Arial,sans-serif" font-size="38" fill="#252525" letter-spacing="3">MAVEN STUDIO  /  TECHNICAL STUDY</text>
+<text x="90" y="155" font-family="Arial,sans-serif" font-size="54" font-weight="bold" fill="#252525">Four chandelier suspension approaches</text>
+<text x="90" y="205" font-family="Arial,sans-serif" font-size="26" fill="#555">Conceptual comparison for project coordination, not a fixing specification</text>
+<g stroke="#555" stroke-width="5" fill="#d8d5ce">
+<rect x="100" y="280" width="300" height="55"/><rect x="480" y="280" width="300" height="55"/>
+<rect x="860" y="280" width="300" height="55"/><rect x="1240" y="280" width="260" height="55"/>
+</g>
+<!-- rods -->
+<g stroke="#444" stroke-width="13"><line x1="250" y1="335" x2="250" y2="590"/><line x1="220" y1="590" x2="280" y2="590"/></g>
+<!-- cables -->
+<g stroke="#555" stroke-width="5"><line x1="630" y1="335" x2="590" y2="590"/><line x1="630" y1="335" x2="670" y2="590"/></g>
+<!-- chain -->
+<g stroke="#555" stroke-width="6" fill="none">
+<path d="M1000 335 q-25 20 0 40 q25 20 0 40 q-25 20 0 40 q25 20 0 40 q-25 20 0 40 q25 20 0 40"/>
+</g>
+<!-- frame -->
+<g stroke="#555" stroke-width="8" fill="none">
+<path d="M1300 335 L1300 430 L1370 520 L1430 430 L1430 335"/>
+<path d="M1300 430 L1430 430"/>
+</g>
+<!-- fixture icons -->
+<g fill="#b7a27a" stroke="#444" stroke-width="4">
+<path d="M180 610 L320 610 L300 660 L200 660 Z"/>
+<path d="M520 610 L740 610 L710 660 L550 660 Z"/>
+<path d="M930 610 L1070 610 L1050 660 L950 660 Z"/>
+<path d="M1260 610 L1470 610 L1440 660 L1290 660 Z"/>
+</g>
+<g font-family="Arial,sans-serif" fill="#252525">
+<text x="145" y="730" font-size="30" font-weight="bold">Rigid rod / stem</text>
+<text x="145" y="770" font-size="22">Controlled position; less flexible</text>
+<text x="520" y="730" font-size="30" font-weight="bold">Wire rope / cable</text>
+<text x="520" y="770" font-size="22">Discreet and adjustable; tension only</text>
+<text x="930" y="730" font-size="30" font-weight="bold">Chain</text>
+<text x="930" y="770" font-size="22">Decorative and adjustable by link</text>
+<text x="1260" y="730" font-size="30" font-weight="bold">Support frame</text>
+<text x="1260" y="770" font-size="22">Custom geometry; engineered assembly</text>
+</g>
+<text x="90" y="865" font-family="Arial,sans-serif" font-size="20" fill="#666">All components, terminations and supporting connections must be selected and verified for the specific installation.</text>
+</svg>

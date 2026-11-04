@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect width="1600" height="900" fill="#f7f6f2"/>
+<text x="90" y="92" font-family="Arial,sans-serif" font-size="38" fill="#252525" letter-spacing="3">MAVEN STUDIO  /  TECHNICAL STUDY</text>
+<text x="90" y="155" font-family="Arial,sans-serif" font-size="54" font-weight="bold" fill="#252525">How a heavy chandelier is supported</text>
+<text x="90" y="205" font-family="Arial,sans-serif" font-size="26" fill="#555">Typical Indian RCC-framed building: conceptual load-path illustration</text>
+<!-- structure -->
+<rect x="150" y="280" width="1300" height="115" fill="#d8d5ce" stroke="#444" stroke-width="4"/>
+<text x="180" y="345" font-family="Arial,sans-serif" font-size="30" fill="#252525">RCC slab</text>
+<rect x="610" y="395" width="380" height="95" fill="#c3beb4" stroke="#444" stroke-width="4"/>
+<text x="690" y="452" font-family="Arial,sans-serif" font-size="28" fill="#252525">RCC beam</text>
+<!-- false ceiling -->
+<line x1="150" y1="560" x2="1450" y2="560" stroke="#777" stroke-width="8"/>
+<text x="180" y="610" font-family="Arial,sans-serif" font-size="27" fill="#555">Gypsum / false ceiling (finish, not assumed to be structural support)</text>
+<!-- anchors and rods -->
+<rect x="770" y="260" width="60" height="42" rx="5" fill="#777" stroke="#222" stroke-width="3"/>
+<line x1="800" y1="302" x2="800" y2="685" stroke="#444" stroke-width="12"/>
+<line x1="800" y1="490" x2="800" y2="560" stroke="#444" stroke-width="12"/>
+<!-- fixture -->
+<path d="M680 690 L920 690 L875 740 L725 740 Z" fill="#b7a27a" stroke="#444" stroke-width="4"/>
+<line x1="800" y1="740" x2="800" y2="780" stroke="#444" stroke-width="4"/>
+<circle cx="800" cy="805" r="20" fill="#b7a27a" stroke="#444" stroke-width="3"/>
+<path d="M680 690 L610 770 M920 690 L990 770 M725 740 L675 820 M875 740 L925 820" stroke="#8b7757" stroke-width="5"/>
+<!-- arrows -->
+<g stroke="#8b3d2e" stroke-width="8" fill="none">
+<path d="M800 670 L800 515"/><path d="M780 535 L800 510 L820 535"/>
+<path d="M800 485 L800 315"/><path d="M780 335 L800 310 L820 335"/>
+</g>
+<!-- labels -->
+<g font-family="Arial,sans-serif" fill="#252525">
+<text x="900" y="292" font-size="25">Engineered anchor / embedded plate</text>
+<text x="900" y="330" font-size="21" fill="#555">Selected and verified for the actual substrate</text>
+<text x="900" y="470" font-size="25">Suspension member</text>
+<text x="900" y="507" font-size="21" fill="#555">Rod, wire rope, chain or designed frame</text>
+<text x="900" y="710" font-size="25">Chandelier frame</text>
+<text x="900" y="750" font-size="21" fill="#555">Fixture mass and support locations must be known</text>
+</g>
+<text x="90" y="865" font-family="Arial,sans-serif" font-size="20" fill="#666">Concept only. Actual structural support, anchors and connections require project-specific engineering verification.</text>
+</svg>
