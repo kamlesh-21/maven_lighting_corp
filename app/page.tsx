@@ -59,6 +59,7 @@ export default function Home() {
         <div className="hero-image">
           <Image
             src="/images/hero-chandelier.webp"
+
             alt="Decorative chandelier"
             fill
             priority

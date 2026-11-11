@@ -1,33 +1,53 @@
+
 # Maven Decoratives
 
-> Maven Decoratives develops bespoke decorative lighting for hospitality, commercial and residential projects across India. A project can start from a reference image, a designer's sketch, a drawing or a BOQ (bill of quantities), and is developed into a finished fixture. Maven coordinates the design intent, materials, construction, approvals and delivery.
+> Maven Decoratives is an India-based design-led decorative lighting development and sourcing studio. It develops bespoke decorative lighting for hospitality, commercial and residential projects, coordinating design intent, materials, technical development, specialist manufacturing, approvals and delivery.
 
-To start a project, send a requirement, reference, drawing or BOQ through the contact form, WhatsApp or email.
+Maven works from reference images, sketches, architectural drawings, lighting schedules and BOQs. Its focus includes bespoke chandeliers, pendants, wall sconces, lamps and feature lighting.
 
-## Site
+Maven coordinates with specialist manufacturing partners. It is a project-development and sourcing studio, not a factory or manufacturer claiming to produce every component in-house.
 
-- [Home page](https://mavendecoratives.com/): Overview of the Maven approach, lighting categories, materials, technical considerations and the requirement form
-- [The Maven approach](https://mavendecoratives.com/#approach): How a reference is understood, developed into a fixture, coordinated (drawings, samples, mock-ups, mounting, weight) and taken towards delivery
-- [Fixture development record](https://mavendecoratives.com/#development-record): An illustrative worked example of how a bespoke fixture is documented behind the scenes, from reference to technical handover: key parameters, layout and spacing, construction, bill of materials and weight, specification, scope, risks and handover
-- [Lighting categories](https://mavendecoratives.com/#lighting): Chandeliers, pendants, wall sconces, custom fixtures, hospitality lighting and feature lighting
-- [Materials and finishes](https://mavendecoratives.com/#materials): Metals, crystal, fabric, glass, mixed materials and finishes
-- [Technical considerations](https://mavendecoratives.com/#technical): Light, control, scale, construction, material and manufacturing details behind a decorative fixture
+For project enquiries, share a reference, drawing, BOQ or project requirement through the website contact form, WhatsApp or email.
 
-## Studio
+## Main Website
 
-- [Maven Studio](https://mavendecoratives.com/studio): All articles on how bespoke decorative lighting is designed, made and finished
-- [From Reference Image to Manufacturable Object: A Technical Workflow for Bespoke Lighting](https://mavendecoratives.com/studio/from-reference-image-to-manufacturable-object): A technical workflow for taking a reference image to a manufacturable bespoke lighting fixture
-- [How to Calculate Chandelier Weight: Rod Count, Spacing, Structure and Ceiling Loads](https://mavendecoratives.com/studio/how-to-calculate-chandelier-weight): How to calculate chandelier weight from rod count, spacing and structure, and what it means for ceiling loads
-- [Inside a Metal Foundry: How Casting Works, from Pattern to Finished Component](https://mavendecoratives.com/studio/metal-casting-process-foundry): How metal casting works in a foundry, from pattern to finished component
-- [PVD vs Electroplating vs Lacquer: Choosing a Finish for Decorative Metalwork](https://mavendecoratives.com/studio/pvd-vs-electroplating-vs-lacquer): Compares PVD, electroplating and lacquer as finishes for decorative metalwork
-- [Brass vs Kansa: Composition, Finishes and Material Selection for Interior Design](https://mavendecoratives.com/studio/brass-vs-kansa-interior-design): Compares brass and kansa in composition, finishes and material selection for interior design
-- [Heavy Chandelier Installation: Structural Support, Suspension Systems and Architectural Coordination](https://mavendecoratives.com/studio/heavy-chandelier-installation): A practical guide to structural support, suspension systems, anchors, RCP coordination and maintenance access for heavy chandelier installations
+- [Home](https://mavendecoratives.com/): Overview of Maven Decoratives, its approach, lighting categories, materials and project enquiry process.
+- [The Maven Approach](https://mavendecoratives.com/#approach): How design intent is translated into a developed decorative lighting fixture, including technical coordination and manufacturing.
+- [Fixture Development Record](https://mavendecoratives.com/#development-record): Illustrative documentation of fixture development, including design interpretation, dimensions, construction, materials, weight, specifications, risks and handover.
+- [Lighting Categories](https://mavendecoratives.com/#lighting): Bespoke chandeliers, pendants, wall sconces, lamps and feature lighting.
+- [Materials and Finishes](https://mavendecoratives.com/#materials): Metals, crystal, glass, fabric, mixed materials and decorative finishes.
+- [Technical Considerations](https://mavendecoratives.com/#technical): Design, construction, material, installation and manufacturing considerations for decorative lighting.
+- [Hall of Fame](https://mavendecoratives.com/#hall-of-fame): Designers, ateliers and historical design references informing Maven's design thinking. These are independent references, not affiliations or endorsements.
 
-## Learn the design references
+## Maven Studio
 
-- [Hall of Fame](https://mavendecoratives.com/#hall-of-fame): Designers and ateliers that inspire Maven's work. Each reference lists the development considerations Maven takes into account, such as weight, fixing, glare and finish. For context, what each is known for: Alexander Calder (mobiles and balance); Venini (Murano glass, founded 1921); Serge Mouille (articulated metal lighting); Saint-Louis (French crystal, founded 1586); Poul Henningsen (layered reflector shades and glare control); Carlo Scarpa (textured and layered glass, with Venini); Gino Sarfatti (Arteluce, component-led lighting); Barovier & Toso (Venetian crystal and chandeliers, heritage from 1295); Seguso Vetri d'Arte (sculptural Murano glass, established 1933); Mathieu Lustrerie (chandelier restoration and reproduction); Alexander Lamont (specialist materials such as straw marquetry and shagreen); Diego Giacometti (bronze furniture and objects); OCHRE (organic decorative forms); APPARATUS (New York design studio, founded 2012); Charles Burnand (collectible design and illuminated sculpture); Pinto (French interior architecture and decoration studio); Michael Anastassiades (geometric, minimal lighting). Illustrations are original Maven interpretations, not works by the designers named, and no affiliation or endorsement is implied.
-## Contact
+- [Maven Studio](https://mavendecoratives.com/studio): Technical and design articles about bespoke decorative lighting, materials, manufacturing, engineering and finish development.
 
-- [Contact and requirement form](https://mavendecoratives.com/#contact): Share a project requirement, reference, drawing or BOQ
-- [WhatsApp](https://wa.me/919646562880): Direct message to Maven Decoratives
+## Materials, Metals and Surface Engineering
+
+- [Brass, Bronze and Copper: Understanding the Metals Behind Decorative Lighting](https://mavendecoratives.com/studio/brass-bronze-copper-decorative-lighting): Material selection, metal composition, manufacturing considerations, finishes, ageing and the use of copper alloys in decorative lighting.
+- [Brass vs Kansa: Composition, Finishes and Material Selection for Interior Design](https://mavendecoratives.com/studio/brass-vs-kansa-interior-design): Comparison of brass and kansa, their composition, characteristics, finishes and suitability for interior applications.
+- [Why Brass and Bronze Change Colour: The Science of Patina, Corrosion and Surface Protection](https://mavendecoratives.com/studio/why-brass-bronze-change-colour): Natural oxidation, tarnishing, chemical patination, dezincification, fingerprints, humidity, sulphur compounds, chlorides, protective coatings, PVD, surface preparation, manufacturing controls and performance testing.
+- [Before You Polish That Brass: A Hotel Engineer's Guide to Tarnish, Patina and Corrosion](https://mavendecoratives.com/studio/before-you-polish-brass): Practical identification, cleaning, maintenance and restoration considerations for aged brass lamps, chandeliers and decorative metalwork.
+- [PVD vs Electroplating vs Lacquer: Choosing a Finish for Decorative Metalwork](https://mavendecoratives.com/studio/pvd-vs-electroplating-vs-lacquer): Comparison of decorative metal finishing systems, their processes, properties, limitations and selection considerations.
+- [Inside a Metal Foundry: How Casting Works, from Pattern to Finished Component](https://mavendecoratives.com/studio/metal-casting-process-foundry): Metal casting workflow, patterns, moulds, pouring, finishing and the production of decorative metal components.
+
+## Design Development and Manufacturing
+
+- [From Reference Image to Manufacturable Object: A Technical Workflow for Bespoke Lighting](https://mavendecoratives.com/studio/from-reference-image-to-manufacturable-object): How a visual reference is interpreted, developed and coordinated into a manufacturable decorative lighting fixture.
+- [How to Calculate Chandelier Weight: Rod Count, Spacing, Structure and Ceiling Loads](https://mavendecoratives.com/studio/how-to-calculate-chandelier-weight): Estimating fixture weight from components and construction, suspension considerations, load distribution and structural coordination.
+- [Heavy Chandelier Installation: Structural Support, Suspension Systems and Architectural Coordination](https://mavendecoratives.com/studio/heavy-chandelier-installation): Structural support, load paths, suspension systems, fixing points, ceiling coordination, installation planning and maintenance access.
+
+## Project Enquiries and Contact
+
+- [Contact Maven Decoratives](https://mavendecoratives.com/#contact): Submit a project requirement, reference image, drawing or BOQ.
+- [WhatsApp](https://wa.me/919646562880): Direct project enquiries.
 - [Email](mailto:kamlesh@mavendecoratives.com): kamlesh@mavendecoratives.com
+
+## Important Context
+
+Maven Studio articles provide technical and design information for architects, interior designers, consultants, procurement teams, contractors and manufacturers.
+
+Technical recommendations depend on the actual fixture, materials, manufacturing methods, installation conditions and applicable project requirements. Project-specific structural and electrical decisions should be verified by appropriately qualified professionals.
+
+Design references and historical designers mentioned on the website are included for educational and inspiration purposes. No affiliation, endorsement or authorship is implied.
