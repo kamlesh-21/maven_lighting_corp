@@ -15,13 +15,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${baseUrl}/studio`,
       changeFrequency: "weekly",
-      priority: 0.7,
+      priority: 0.8,
     },
     ...articles.map((article) => ({
       url: `${baseUrl}/studio/${article.slug}`,
       lastModified: new Date(article.updatedAt ?? article.publishedAt),
-      changeFrequency: "yearly" as const,
-      priority: 0.6,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
   ];
 }

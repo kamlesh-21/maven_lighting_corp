@@ -68,7 +68,7 @@ export default function Home() {
         </div>
 
         <div className="container hero-content">
-          <p className="eyebrow">BESPOKE DECORATIVE LIGHTING</p>
+          <p className="eyebrow">ENGINEERING-LED BESPOKE DECORATIVE LIGHTING</p>
 
           <h1>
             Lighting developed
@@ -77,7 +77,7 @@ export default function Home() {
           </h1>
 
           <p className="hero-copy">
-            Maven Decoratives develops bespoke decorative lighting for hospitality, commercial and residential projects across India.
+              We develop bespoke decorative lighting that brings design intent, engineering precision and project requirements together for hospitality, commercial and residential spaces across India.
           </p>
 
           <div className="hero-actions">

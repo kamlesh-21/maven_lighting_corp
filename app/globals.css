@@ -51,7 +51,7 @@ img {
   height: 59px;
   background: rgba(248, 247, 244, 0.94);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: none;
 }
 
 .header-inner {
@@ -125,7 +125,7 @@ img {
 .hero {
   position: relative;
   min-height: 92vh;
-  padding-top: 76px;
+  padding-top: 59px;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -133,7 +133,7 @@ img {
 
 .hero-image {
   position: absolute;
-  inset: 76px 0 0 0;
+  inset: 59px 0 0 0;
   background: #ddd;
 }
 

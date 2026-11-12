@@ -10,7 +10,7 @@ export default function SiteFooter() {
               MAVEN<br />DECORATIVES
             </Link>
             <p className="footer-description">
-              Bespoke decorative lighting for projects, from drawings to production and delivery.
+              Engineering-Led Bespoke Decorative Lighting Development
             </p>
           </div>
 
